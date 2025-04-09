@@ -184,6 +184,17 @@
       text-decoration: none;
     }
 
+    .social-media a svg {
+      width: 30px;
+      height: 30px;
+      fill: #00bfff;
+      transition: fill 0.3s;
+    }
+
+    .social-media a:hover svg {
+      fill: #009acd;
+    }
+
     @media (max-width: 768px) {
       .package-container {
         flex-direction: column;
@@ -291,27 +302,19 @@
     📧 Email: <a href="mailto:mokm32888@gmail.com">mokm32888@gmail.com</a><br/>
     💬 WhatsApp: <a href="https://wa.me/601136237443">Klik untuk WhatsApp</a>
     <div class="social-media">
-      <a href="https://www.tiktok.com/@gohgaming95?_t=ZS-8vOYkx1ziba&_r=1" target="_blank">TikTok</a>
-      <a href="https://shopee.com.my/necklenj" target="_blank">Shopee</a>
-      <a href="https://youtube.com/@gohgaming95?si=U7BckUfPdkN0svKq" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@gohgaming95?_t=ZS-8vOYkx1ziba&_r=1" target="_blank">
+        <!-- TikTok Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 18c0 .553.447 1 1 1h2c.553 0 1-.447 1-1v-7h2.977c.373 0 .735-.225.88-.586.145-.36.06-.773-.204-1.021l-6.68-6.68c-.348-.348-.922-.348-1.27 0-.265.265-.35.643-.26 1.006l.308 1.517c.09.448-.334.86-.787.86-.348 0-.674-.182-.824-.496-.13-.292-.138-.631-.022-.926L9.764 7.208c.131-.293.358-.432.667-.472l1.598-.254c.351-.057.615-.358.615-.708V5h1.999c.552 0 1-.447 1-1V1c0-.553-.447-1-1-1H9c-.553 0-1 .447-1 1v3h-1c-.552 0-1 .447-1 1v2.521c0 .349-.264.651-.615.708l-1.598.254c-.309.04-.536.179-.667.472l-1.402 2.613c-.116.295-.108.634.022.926.15.314.476.496.824.496.453 0 .877-.412.787-.86l-.308-1.517c-.09-.363-.005-.741.26-1.006.348-.348.922-.348 1.27 0l6.68 6.68c.264.249.349.661.204 1.021-.145.361-.507.586-.88.586H9v7z"/></svg>
+      </a>
+      <a href="https://shopee.com.my" target="_blank">
+        <!-- Shopee Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 2H8C7.447 2 7 2.447 7 3v18c0 .553.447 1 1 1h8c.553 0 1-.447 1-1V3c0-.553-.447-1-1-1zm-1 18H9V4h6v16z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/" target="_blank">
+        <!-- YouTube Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16l5-3-5-3v6zm10-2v-5c0-.553-.447-1-1-1H5c-.553 0-1 .447-1 1v5c0 .553.447 1 1 1h14c.553 0 1-.447 1-1zM21 5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5z"/></svg>
+      </a>
     </div>
   </footer>
-
-  <script>
-    function fillPackage(value) {
-      document.getElementById('pakej').value = value;
-      window.scrollTo({ top: document.getElementById('orderForm').offsetTop - 20, behavior: 'smooth' });
-    }
-
-    function submitOrder(e) {
-      e.preventDefault();
-      const nama = document.getElementById('nama').value;
-      const telefon = document.getElementById('telefon').value;
-      const pakej = document.getElementById('pakej').value;
-      const msg = `Tempahan Baru:\nNama: ${nama}\nTelefon: ${telefon}\nPakej: ${pakej}`;
-      const url = `https://wa.me/601136237443?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
-    }
-  </script>
 </body>
 </html>
