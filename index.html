@@ -171,26 +171,6 @@
       color: #00bfff;
     }
 
-    .social-media {
-      margin-top: 20px;
-      font-size: 1rem;
-    }
-
-    .social-media p {
-      margin-bottom: 15px;
-    }
-
-    .social-media a {
-      text-decoration: none;
-      color: #00bfff;
-      font-weight: bold;
-      margin: 5px;
-    }
-
-    .social-media a:hover {
-      color: #009acd;
-    }
-
     @media (max-width: 768px) {
       .package-container {
         flex-direction: column;
@@ -231,24 +211,24 @@
   <section class="channel-list">
     <h2>📺 Senarai Saluran</h2>
     <ul>
-      <li>Sports</li>
-      <li>Movie</li>
-      <li>3 Beradik</li>
-      <li>Malaysia</li>
-      <li>Chinese</li>
-      <li>India</li>
-      <li>Indonesia</li>
-      <li>News</li>
-      <li>Documentary</li>
-      <li>Arab</li>
-      <li>Brunei</li>
-      <li>Entertainment</li>
-      <li>Fast Channel</li>
-      <li>Korean</li>
-      <li>Singapore</li>
-      <li>Kids</li>
-      <li>Radio</li>
-      <li>Pluto</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Sports"/> Sports</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Movie"/> Movie</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="3 Beradik"/> 3 Beradik</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Malaysia"/> Malaysia</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Chinese"/> Chinese</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="India"/> India</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Indonesia"/> Indonesia</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="News"/> News</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Documentary"/> Documentary</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Arab"/> Arab</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Brunei"/> Brunei</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Entertainment"/> Entertainment</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Fast Channel"/> Fast Channel</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Korean"/> Korean</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Singapore"/> Singapore</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Kids"/> Kids</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Radio"/> Radio</li>
+      <li><img src="https://i.ibb.co/mrNKFM6V/Untitled-design.png" alt="Pluto"/> Pluto</li>
     </ul>
   </section>
 
@@ -279,13 +259,41 @@
     </div>
   </section>
 
+  <form id="orderForm" onsubmit="submitOrder(event)">
+    <h2>Borang Tempahan</h2>
+    <input type="text" id="nama" placeholder="Nama Penuh" required>
+    <input type="text" id="telefon" placeholder="No Telefon" required>
+    <select id="pakej" required>
+      <option value="">Pilih Pakej</option>
+      <option value="Pakej 1 - RM8.80">Pakej 1 - RM8.80</option>
+      <option value="Pakej 2 - RM17.60">Pakej 2 - RM17.60</option>
+      <option value="Pakej 3 - RM26.40">Pakej 3 - RM26.40</option>
+      <option value="Pakej 4 - RM35.20">Pakej 4 - RM35.20</option>
+    </select>
+    <button type="submit">Hantar ke WhatsApp</button>
+  </form>
+
   <footer>
-    <div class="social-media">
-      <p>📱 Ikuti kami di media sosial untuk tawaran menarik, tips, dan kemas kini terkini:</p>
-      <a href="https://www.tiktok.com/@gohgaming95?_t=ZS-8vOYkx1ziba&_r=1" target="_blank">TikTok</a>
-      <a href="https://shopee.com.my/necklenj" target="_blank">Shopee</a>
-      <a href="https://youtube.com/@gohgaming95?si=U7BckUfPdkN0svKq" target="_blank">YouTube</a>
-    </div>
+    📞 Hubungi: <a href="tel:+601136237443">011-3623 7443</a><br/>
+    📧 Email: <a href="mailto:mokm32888@gmail.com">mokm32888@gmail.com</a><br/>
+    💬 WhatsApp: <a href="https://wa.me/601136237443">Klik untuk WhatsApp</a>
   </footer>
+
+  <script>
+    function fillPackage(value) {
+      document.getElementById('pakej').value = value;
+      window.scrollTo({ top: document.getElementById('orderForm').offsetTop - 20, behavior: 'smooth' });
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      const nama = document.getElementById('nama').value;
+      const telefon = document.getElementById('telefon').value;
+      const pakej = document.getElementById('pakej').value;
+      const msg = `Tempahan Baru:\nNama: ${nama}\nTelefon: ${telefon}\nPakej: ${pakej}`;
+      const url = `https://wa.me/601136237443?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
