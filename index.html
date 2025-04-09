@@ -20,9 +20,7 @@
     }
 
     header {
-      background-image: url('https://i.ibb.co/mrNKFM6V/Untitled-design.png'); /* Gambar utama */
-      background-size: cover;
-      background-position: center;
+      background-color: #333; /* Latar belakang baru */
       color: white;
       padding: 100px 0;
       text-align: center;
@@ -58,7 +56,7 @@
       text-align: center;
     }
 
-    .intro, .features, .testimonials, .pricing {
+    .intro, .features, .testimonials, .pricing, .order-form {
       background-color: rgba(0, 0, 0, 0.8);
       border-radius: 10px;
       padding: 30px;
@@ -204,6 +202,26 @@
         font-size: 1.2rem;
       }
     }
+
+    /* Styling untuk borang tempahan */
+    .order-form input, .order-form select, .order-form button {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .order-form button {
+      background-color: #ff6347;
+      color: white;
+      border: none;
+    }
+
+    .order-form button:hover {
+      background-color: #ff4500;
+    }
   </style>
 </head>
 <body>
@@ -236,18 +254,6 @@
         <li>✅ <strong>Kualiti HD & 4K</strong> – Visual tajam, pengalaman menonton premium</li>
         <li>✅ <strong>Aktif Segera</strong> – Tak perlu tunggu, kami setup untuk anda terus jalan!</li>
       </ul>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <div class="container">
-      <h2>Testimoni Pelanggan Kami</h2>
-      <blockquote>
-        <p>“Murah, mudah & memang berbaloi! Semua saluran jalan smooth.” – <strong>Amirul, KL</strong></p>
-      </blockquote>
-      <blockquote>
-        <p>“Anak-anak happy tengok kartun. Saya pula layan movie Korea.” – <strong>Siti, JB</strong></p>
-      </blockquote>
     </div>
   </section>
 
@@ -294,6 +300,24 @@
     </div>
   </section>
 
+  <section class="order-form">
+    <div class="container">
+      <h2>Tempah Sekarang</h2>
+      <form action="https://wa.me/601136237443" method="get" target="_blank">
+        <input type="text" name="name" placeholder="Nama Anda" required>
+        <input type="email" name="email" placeholder="Email Anda" required>
+        <input type="tel" name="phone" placeholder="Nombor Telefon" required>
+        <select name="package" required>
+          <option value="Paket 1">Paket 1 - RM 8.80 (1 ID, 1 Peranti)</option>
+          <option value="Paket 2">Paket 2 - RM 17.60 (1 ID, 2 Peranti)</option>
+          <option value="Paket 3">Paket 3 - RM 26.40 (1 ID, 3 Peranti)</option>
+          <option value="Paket 4">Paket 4 - RM 35.20 (1 ID, 4 Peranti)</option>
+        </select>
+        <button type="submit">Hantar Tempahan</button>
+      </form>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       <p>© 2025 NeckleNj. Semua hak cipta terpelihara.</p>
@@ -306,25 +330,20 @@
   </footer>
 
   <script>
-    // scripts.js
     document.getElementById("package1Button").addEventListener("click", function() {
-      alert("Terima kasih kerana memilih Paket 1! Anda akan diarahkan ke WhatsApp.");
-      window.location.href = "http://wa.me/601136237443"; // Gantikan dengan link WhatsApp anda
+      window.location.href = "http://wa.me/601136237443";
     });
 
     document.getElementById("package2Button").addEventListener("click", function() {
-      alert("Terima kasih kerana memilih Paket 2! Anda akan diarahkan ke WhatsApp.");
-      window.location.href = "http://wa.me/601136237443"; // Gantikan dengan link WhatsApp anda
+      window.location.href = "http://wa.me/601136237443";
     });
 
     document.getElementById("package3Button").addEventListener("click", function() {
-      alert("Terima kasih kerana memilih Paket 3! Anda akan diarahkan ke WhatsApp.");
-      window.location.href = "http://wa.me/601136237443"; // Gantikan dengan link WhatsApp anda
+      window.location.href = "http://wa.me/601136237443";
     });
 
     document.getElementById("package4Button").addEventListener("click", function() {
-      alert("Terima kasih kerana memilih Paket 4! Anda akan diarahkan ke WhatsApp.");
-      window.location.href = "http://wa.me/601136237443"; // Gantikan dengan link WhatsApp anda
+      window.location.href = "http://wa.me/601136237443";
     });
   </script>
 </body>
