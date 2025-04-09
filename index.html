@@ -8,27 +8,43 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: #fff;
-      background-image: radial-gradient(circle, #222 1px, transparent 1px);
-      background-size: 20px 20px;
+      background-color: #0b1d3a;
+      color: #ffffff;
     }
 
     header {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #1a1a1a;
-      border-bottom: 3px solid #ff3c3c;
+      background-color: #0a2540;
+      border-bottom: 3px solid #00bfff;
     }
 
     header h1 {
       font-size: 2rem;
-      color: #ff3c3c;
+      color: #00bfff;
     }
 
     header p {
       font-size: 1.1rem;
       margin-top: 0.5rem;
+    }
+
+    .hero {
+      background-color: #0e2a4d;
+      padding: 2rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .hero h2 {
+      font-size: 1.5rem;
+      color: #00bfff;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: auto;
     }
 
     .package-container {
@@ -40,17 +56,17 @@
     }
 
     .package {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
+      background-color: #14375d;
+      border: 1px solid #1b4e80;
       padding: 1rem;
       border-radius: 10px;
       width: 260px;
       text-align: center;
-      box-shadow: 0 0 10px rgba(255, 60, 60, 0.2);
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
     }
 
     .package h3 {
-      color: #ff3c3c;
+      color: #00bfff;
     }
 
     .package p {
@@ -59,7 +75,7 @@
 
     .package button {
       margin-top: 10px;
-      background-color: #ff3c3c;
+      background-color: #00bfff;
       color: white;
       border: none;
       padding: 10px 16px;
@@ -69,20 +85,20 @@
     }
 
     .package button:hover {
-      background-color: #e52c2c;
+      background-color: #009acd;
     }
 
     form {
       padding: 2rem 1rem;
       max-width: 400px;
       margin: auto;
-      background-color: #1a1a1a;
+      background-color: #0e2a4d;
       border-radius: 10px;
     }
 
     form h2 {
       text-align: center;
-      color: #ff3c3c;
+      color: #00bfff;
     }
 
     form input, form select {
@@ -94,7 +110,7 @@
     }
 
     form button {
-      background-color: #ff3c3c;
+      background-color: #00bfff;
       color: white;
       border: none;
       width: 100%;
@@ -105,94 +121,19 @@
     }
 
     form button:hover {
-      background-color: #e52c2c;
+      background-color: #009acd;
     }
 
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      background-color: #111;
-      border-top: 2px solid #ff3c3c;
+      background-color: #0a2540;
+      border-top: 2px solid #00bfff;
       font-size: 0.9rem;
     }
 
-    /* Chatbot Styles */
-    #chatbot-container {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: 320px;
-      max-height: 450px;
-      background: #1a1a1a;
-      border: 1px solid #444;
-      border-radius: 10px;
-      display: none;
-      flex-direction: column;
-      z-index: 9999;
-    }
-
-    #chatbot-header {
-      background: #ff3c3c;
-      padding: 10px;
-      color: white;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    #chatbot-body {
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-      color: #fff;
-      font-size: 0.9rem;
-    }
-
-    .chatbot-msg {
-      margin: 5px 0;
-    }
-
-    .bot { color: #ffbcbc; }
-    .user { text-align: right; color: #aaffaa; }
-
-    #chatbot-options {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 10px;
-    }
-
-    .chatbot-option {
-      background: #2a2a2a;
-      color: #fff;
-      border: 1px solid #444;
-      padding: 8px 10px;
-      border-radius: 5px;
-      text-align: left;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: 0.2s ease;
-    }
-
-    .chatbot-option:hover {
-      background: #ff3c3c;
-    }
-
-    #chatbot-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ff3c3c;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      z-index: 9999;
-    }
-
-    #chatbot-toggle:hover {
-      background: #e52c2c;
+    a {
+      color: #00bfff;
     }
 
     @media (max-width: 768px) {
@@ -212,6 +153,25 @@
     <h1>NeckleNj</h1>
     <p>ID OTT Navigator + VOD Lifetime</p>
   </header>
+
+  <section class="hero">
+    <h2>🎬 Selamat Datang ke NeckleNj – Hiburan Tanpa Batasan!</h2>
+    <p>
+      ✅ Lifetime Access. Tanpa Bayaran Bulanan.<br>
+      ✅ Ribuan Saluran + VOD Lengkap. Terus di TV, Android & Peranti Anda.<br><br>
+      Bayangkan…<br>
+      📺 Menonton saluran premium dari seluruh dunia<br>
+      🎞 Akses ke filem terkini & siri popular<br>
+      ⚡️ Tanpa lag, tanpa sekatan, tanpa kos tersembunyi<br><br>
+      Hanya dengan satu ID playlist – dan ianya seumur hidup!<br><br>
+      🔥 Kenapa Pilih NeckleNj?<br>
+      ✅ Lifetime ID Playlist – Bayar sekali, nikmati selamanya<br>
+      ✅ Lengkap dengan VOD – Filem, drama, rancangan hiburan & banyak lagi<br>
+      ✅ Sokongan OTT Navigator – Aplikasi paling stabil & mesra pengguna<br>
+      ✅ Kualiti HD & 4K – Visual tajam, pengalaman menonton premium<br>
+      ✅ Aktif Segera – Tak perlu tunggu, kami setup untuk anda terus jalan!
+    </p>
+  </section>
 
   <section class="package-container">
     <div class="package">
@@ -255,20 +215,11 @@
   </form>
 
   <footer>
-    📞 Hubungi: <a href="tel:+601136237443" style="color:#ff3c3c;">011-3623 7443</a><br/>
-    📧 Email: <a href="mailto:mokm32888@gmail.com" style="color:#ff3c3c;">mokm32888@gmail.com</a><br/>
-    💬 WhatsApp: <a href="https://wa.me/601136237443" style="color:#ff3c3c;">Klik untuk WhatsApp</a>
+    📞 Hubungi: <a href="tel:+601136237443">011-3623 7443</a><br/>
+    📧 Email: <a href="mailto:mokm32888@gmail.com">mokm32888@gmail.com</a><br/>
+    💬 WhatsApp: <a href="https://wa.me/601136237443">Klik untuk WhatsApp</a>
   </footer>
 
-  <!-- Chatbot HTML -->
-  <div id="chatbot-container">
-    <div id="chatbot-header">🤖 Bantuan NeckleNj</div>
-    <div id="chatbot-body"></div>
-    <div id="chatbot-options"></div>
-  </div>
-  <button id="chatbot-toggle">Chat 💬</button>
-
-  <!-- Script -->
   <script>
     function fillPackage(value) {
       document.getElementById('pakej').value = value;
@@ -280,62 +231,10 @@
       const nama = document.getElementById('nama').value;
       const telefon = document.getElementById('telefon').value;
       const pakej = document.getElementById('pakej').value;
-      const msg = `Tempahan Baru:%0ANama: ${nama}%0ATelefon: ${telefon}%0APakej: ${pakej}`;
-      const url = `https://wa.me/601136237443?text=${encodeURIComponent(msg).replace(/%0A/g, '\n')}`;
+      const msg = `Tempahan Baru:\nNama: ${nama}\nTelefon: ${telefon}\nPakej: ${pakej}`;
+      const url = `https://wa.me/601136237443?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
     }
-
-    // Chatbot
-    const chatbotToggle = document.getElementById("chatbot-toggle");
-    const chatbotContainer = document.getElementById("chatbot-container");
-    const chatbotBody = document.getElementById("chatbot-body");
-    const chatbotOptions = document.getElementById("chatbot-options");
-
-    const options = [
-      { question: "Apakah pakej yang ditawarkan?", answer: "📦 4 Pakej Lifetime:\n1 Peranti (RM8.80)\n2 Peranti (RM17.60)\n3 Peranti (RM26.40)\n4 Peranti (RM35.20)" },
-      { question: "Berapa lama proses dapat ID?", answer: "⏱️ Tak sampai 5 minit! ID akan dihantar melalui WhatsApp." },
-      { question: "Apa itu ID OTT Navigator?", answer: "🧾 ID OTT ialah akses ke OTT Navigator untuk tonton TV & VOD online." },
-      { question: "Boleh tengok kat mana?", answer: "📺 Guna pada Android TV, telefon pintar, tablet atau Android box." },
-      { question: "Macam mana nak tempah?", answer: "📝 Isi borang & klik 'Hantar ke WhatsApp'. Kami uruskan segera." }
-    ];
-
-    function botReply(msg) {
-      const botMsg = document.createElement("div");
-      botMsg.className = "chatbot-msg bot";
-      botMsg.innerText = msg;
-      chatbotBody.appendChild(botMsg);
-      chatbotBody.scrollTop = chatbotBody.scrollHeight;
-    }
-
-    function userReply(msg) {
-      const userMsg = document.createElement("div");
-      userMsg.className = "chatbot-msg user";
-      userMsg.innerText = msg;
-      chatbotBody.appendChild(userMsg);
-      chatbotBody.scrollTop = chatbotBody.scrollHeight;
-    }
-
-    function showOptions() {
-      chatbotOptions.innerHTML = "";
-      options.forEach(opt => {
-        const btn = document.createElement("div");
-        btn.className = "chatbot-option";
-        btn.innerText = opt.question;
-        btn.onclick = () => {
-          userReply(opt.question);
-          setTimeout(() => botReply(opt.answer), 500);
-        };
-        chatbotOptions.appendChild(btn);
-      });
-    }
-
-    chatbotToggle.addEventListener("click", () => {
-      chatbotContainer.style.display = chatbotContainer.style.display === "none" ? "flex" : "none";
-      if (chatbotBody.innerHTML.trim() === "") {
-        botReply("Hai! Saya bot NeckleNj. Ada soalan? Klik di bawah 👇");
-        showOptions();
-      }
-    });
   </script>
 </body>
 </html>
