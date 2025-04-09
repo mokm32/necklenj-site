@@ -20,7 +20,7 @@
     }
 
     header {
-      background-color: #333; /* Latar belakang baru */
+      background-color: #333;
       color: white;
       padding: 100px 0;
       text-align: center;
@@ -267,7 +267,7 @@
           <p>1 ID, 1 Peranti</p>
           <span>RM 8.80</span>
           <p>Lifetime Access</p>
-          <button id="package1Button">ORDER PAKET 1</button>
+          <button class="orderButton" data-package="Paket 1 - RM 8.80 (1 ID, 1 Peranti)">ORDER PAKET 1</button>
         </div>
         
         <!-- Paket 2 -->
@@ -276,7 +276,7 @@
           <p>1 ID, 2 Peranti</p>
           <span>RM 17.60</span>
           <p>Lifetime Access</p>
-          <button id="package2Button">ORDER PAKET 2</button>
+          <button class="orderButton" data-package="Paket 2 - RM 17.60 (1 ID, 2 Peranti)">ORDER PAKET 2</button>
         </div>
 
         <!-- Paket 3 -->
@@ -285,7 +285,7 @@
           <p>1 ID, 3 Peranti</p>
           <span>RM 26.40</span>
           <p>Lifetime Access</p>
-          <button id="package3Button">ORDER PAKET 3</button>
+          <button class="orderButton" data-package="Paket 3 - RM 26.40 (1 ID, 3 Peranti)">ORDER PAKET 3</button>
         </div>
 
         <!-- Paket 4 -->
@@ -294,24 +294,25 @@
           <p>1 ID, 4 Peranti</p>
           <span>RM 35.20</span>
           <p>Lifetime Access</p>
-          <button id="package4Button">ORDER PAKET 4</button>
+          <button class="orderButton" data-package="Paket 4 - RM 35.20 (1 ID, 4 Peranti)">ORDER PAKET 4</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="order-form">
+  <section class="order-form" style="display:none;">
     <div class="container">
       <h2>Tempah Sekarang</h2>
-      <form action="https://wa.me/601136237443" method="get" target="_blank">
+      <form id="orderForm" action="https://wa.me/601136237443" method="get" target="_blank">
         <input type="text" name="name" placeholder="Nama Anda" required>
         <input type="email" name="email" placeholder="Email Anda" required>
         <input type="tel" name="phone" placeholder="Nombor Telefon" required>
         <select name="package" required>
-          <option value="Paket 1">Paket 1 - RM 8.80 (1 ID, 1 Peranti)</option>
-          <option value="Paket 2">Paket 2 - RM 17.60 (1 ID, 2 Peranti)</option>
-          <option value="Paket 3">Paket 3 - RM 26.40 (1 ID, 3 Peranti)</option>
-          <option value="Paket 4">Paket 4 - RM 35.20 (1 ID, 4 Peranti)</option>
+          <option value="" disabled selected>Pilih Paket</option>
+          <option value="Paket 1 - RM 8.80">Paket 1 - RM 8.80 (1 ID, 1 Peranti)</option>
+          <option value="Paket 2 - RM 17.60">Paket 2 - RM 17.60 (1 ID, 2 Peranti)</option>
+          <option value="Paket 3 - RM 26.40">Paket 3 - RM 26.40 (1 ID, 3 Peranti)</option>
+          <option value="Paket 4 - RM 35.20">Paket 4 - RM 35.20 (1 ID, 4 Peranti)</option>
         </select>
         <button type="submit">Hantar Tempahan</button>
       </form>
@@ -330,20 +331,16 @@
   </footer>
 
   <script>
-    document.getElementById("package1Button").addEventListener("click", function() {
-      window.location.href = "http://wa.me/601136237443";
-    });
+    document.querySelectorAll(".orderButton").forEach(button => {
+      button.addEventListener("click", function() {
+        const packageSelected = this.getAttribute("data-package");
 
-    document.getElementById("package2Button").addEventListener("click", function() {
-      window.location.href = "http://wa.me/601136237443";
-    });
+        // Update the package in the form
+        document.querySelector('select[name="package"]').value = packageSelected;
 
-    document.getElementById("package3Button").addEventListener("click", function() {
-      window.location.href = "http://wa.me/601136237443";
-    });
-
-    document.getElementById("package4Button").addEventListener("click", function() {
-      window.location.href = "http://wa.me/601136237443";
+        // Show the order form
+        document.querySelector('.order-form').style.display = 'block';
+      });
     });
   </script>
 </body>
