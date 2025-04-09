@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NeckleNj - OTT Navigator Lifetime + VOD</title>
   <style>
-    /* styles.css */
     * {
       margin: 0;
       padding: 0;
@@ -15,91 +14,145 @@
     body {
       font-family: 'Arial', sans-serif;
       line-height: 1.6;
-      background-color: #111;
-      color: #f4f4f4;
+      background-color: #0d0d0d;
+      color: #fff;
     }
 
     header {
-      background-color: #333;
-      color: white;
-      padding: 100px 0;
+      background: linear-gradient(to right, #1c1c1c, #111);
+      color: #fff;
       text-align: center;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+      padding: 80px 20px;
     }
 
     header h1 {
-      font-size: 4rem;
-      font-family: 'Roboto', sans-serif;
-      letter-spacing: 5px;
-      margin-bottom: 20px;
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
 
     header span {
-      color: #ff6347;
-      font-size: 2.5rem;
-      font-weight: bold;
+      color: #ff3c3c;
     }
 
     section {
-      padding: 50px 0;
+      padding: 50px 20px;
     }
 
     .container {
-      width: 80%;
+      width: 90%;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     h2 {
-      color: #ff6347;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
       text-align: center;
-    }
-
-    .intro, .features, .testimonials, .pricing, .order-form {
-      background-color: rgba(0, 0, 0, 0.8);
-      border-radius: 10px;
-      padding: 30px;
+      font-size: 2rem;
+      color: #ff3c3c;
       margin-bottom: 30px;
     }
 
     ul {
-      list-style-type: none;
+      list-style: none;
+      padding: 0;
       text-align: center;
     }
 
     ul li {
-      margin: 15px 0;
-      font-size: 1.3rem;
+      margin: 10px 0;
+      font-size: 1.2rem;
     }
 
-    button {
-      background-color: #ff6347;
-      color: white;
-      padding: 15px 30px;
+    .pricing-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pricing-option {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      width: 260px;
+      text-align: center;
+    }
+
+    .pricing-option h3 {
+      color: #ff3c3c;
+      font-size: 1.5rem;
+    }
+
+    .pricing-option p {
+      margin: 10px 0;
+    }
+
+    .pricing-option span {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .pricing-option button {
+      background: #ff3c3c;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .pricing-option button:hover {
+      background: #e62e2e;
+    }
+
+    .order-form {
+      display: none;
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 20px;
+    }
+
+    .order-form input,
+    .order-form select,
+    .order-form button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
       border: none;
       border-radius: 5px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: block;
-      margin: 30px auto;
+      font-size: 1rem;
     }
 
-    button:hover {
-      background-color: #ff4500;
+    .order-form input,
+    .order-form select {
+      background: #2a2a2a;
+      color: #fff;
+    }
+
+    .order-form button {
+      background: #ff3c3c;
+      color: white;
+      cursor: pointer;
+    }
+
+    .order-form button:hover {
+      background: #e62e2e;
     }
 
     footer {
-      background-color: #222;
-      color: white;
+      background: #111;
+      color: #fff;
       text-align: center;
-      padding: 30px 0;
+      padding: 30px 20px;
     }
 
     footer a {
-      color: #ff6347;
+      color: #ff3c3c;
       text-decoration: none;
-      font-weight: bold;
     }
 
     footer a:hover {
@@ -107,212 +160,88 @@
     }
 
     .contact-info {
-      margin-top: 20px;
-      font-size: 1.2rem;
-    }
-
-    .contact-info span {
-      display: block;
-      margin-top: 10px;
-    }
-
-    /* Styling untuk pricing section */
-    .pricing-options {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .pricing-option {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      width: 22%;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      margin: 10px;
-    }
-
-    .pricing-option h3 {
-      font-size: 2rem;
-      color: #ff6347;
-    }
-
-    .pricing-option p {
-      font-size: 1.2rem;
-      margin: 15px 0;
-    }
-
-    .pricing-option span {
-      display: block;
-      font-size: 1.5rem;
-      margin: 10px 0;
-    }
-
-    .pricing-option button {
-      background-color: #ff6347;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.2rem;
-      cursor: pointer;
       margin-top: 15px;
+      font-size: 1rem;
     }
 
-    .pricing-option button:hover {
-      background-color: #ff4500;
-    }
-
-    /* Media Queries for Responsiveness */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2.5rem;
-      }
-
-      header span {
-        font-size: 2rem;
-      }
-
-      .pricing-option {
-        width: 45%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      header span {
-        font-size: 1.5rem;
+        font-size: 2.2rem;
       }
 
       .pricing-option {
         width: 90%;
       }
-
-      .container {
-        width: 90%;
-      }
-
-      button {
-        font-size: 1.2rem;
-      }
-    }
-
-    /* Styling untuk borang tempahan */
-    .order-form input, .order-form select, .order-form button {
-      width: 100%;
-      padding: 15px;
-      margin: 10px 0;
-      font-size: 1.2rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .order-form button {
-      background-color: #ff6347;
-      color: white;
-      border: none;
-    }
-
-    .order-form button:hover {
-      background-color: #ff4500;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <h1>Selamat Datang ke <span>NeckleNj</span></h1>
-      <p>Hiburan Tanpa Batasan, Lifetime Access untuk Playlist & VOD!</p>
-    </div>
+    <h1>Selamat Datang ke <span>NeckleNj</span></h1>
+    <p>Hiburan Tanpa Batasan | Lifetime Playlist + VOD!</p>
   </header>
 
-  <section class="intro">
+  <section>
     <div class="container">
       <h2>Bayangkan...</h2>
       <ul>
-        <li>📺 Menonton saluran premium dari seluruh dunia</li>
-        <li>🎞 Akses ke filem terkini & siri popular</li>
-        <li>⚡️ Tanpa lag, tanpa sekatan, tanpa kos tersembunyi</li>
-      </ul>
-      <p><strong>Hanya dengan satu ID playlist – dan ianya seumur hidup!</strong></p>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="container">
-      <h2>Kenapa Pilih NeckleNj?</h2>
-      <ul>
-        <li>✅ <strong>Lifetime ID Playlist</strong> – Bayar sekali, nikmati selamanya</li>
-        <li>✅ <strong>Lengkap dengan VOD</strong> – Filem, drama, rancangan hiburan & banyak lagi</li>
-        <li>✅ <strong>Sokongan OTT Navigator</strong> – Aplikasi paling stabil & mesra pengguna</li>
-        <li>✅ <strong>Kualiti HD & 4K</strong> – Visual tajam, pengalaman menonton premium</li>
-        <li>✅ <strong>Aktif Segera</strong> – Tak perlu tunggu, kami setup untuk anda terus jalan!</li>
+        <li>📺 Tonton saluran premium dari seluruh dunia</li>
+        <li>🎞 Akses ke filem & siri popular</li>
+        <li>⚡ Tiada lag, tiada sekatan, tiada caj tersembunyi</li>
       </ul>
     </div>
   </section>
 
-  <section class="pricing">
+  <section>
     <div class="container">
-      <h2>Harga PROMO Sekarang:</h2>
+      <h2>Pilihan Pakej Lifetime</h2>
       <div class="pricing-options">
-        <!-- Paket 1 -->
         <div class="pricing-option">
-          <h3>Pakage 1</h3>
+          <h3>Pakej 1</h3>
           <p>1 ID, 1 Peranti</p>
           <span>RM 8.80</span>
           <p>Lifetime Access</p>
-          <button class="orderButton" data-package="Paket 1 - RM 8.80 (1 ID, 1 Peranti)">ORDER PAKET 1</button>
+          <button class="orderButton" data-package="Pakej 1 - RM 8.80 (1 ID, 1 Peranti)">Order</button>
         </div>
-        
-        <!-- Paket 2 -->
         <div class="pricing-option">
-          <h3>Pakage 2</h3>
+          <h3>Pakej 2</h3>
           <p>1 ID, 2 Peranti</p>
           <span>RM 17.60</span>
           <p>Lifetime Access</p>
-          <button class="orderButton" data-package="Paket 2 - RM 17.60 (1 ID, 2 Peranti)">ORDER PAKET 2</button>
+          <button class="orderButton" data-package="Pakej 2 - RM 17.60 (1 ID, 2 Peranti)">Order</button>
         </div>
-
-        <!-- Paket 3 -->
         <div class="pricing-option">
-          <h3>Pakage 3</h3>
+          <h3>Pakej 3</h3>
           <p>1 ID, 3 Peranti</p>
           <span>RM 26.40</span>
           <p>Lifetime Access</p>
-          <button class="orderButton" data-package="Paket 3 - RM 26.40 (1 ID, 3 Peranti)">ORDER PAKET 3</button>
+          <button class="orderButton" data-package="Pakej 3 - RM 26.40 (1 ID, 3 Peranti)">Order</button>
         </div>
-
-        <!-- Paket 4 -->
         <div class="pricing-option">
-          <h3>Pakage 4</h3>
+          <h3>Pakej 4</h3>
           <p>1 ID, 4 Peranti</p>
           <span>RM 35.20</span>
           <p>Lifetime Access</p>
-          <button class="orderButton" data-package="Paket 4 - RM 35.20 (1 ID, 4 Peranti)">ORDER PAKET 4</button>
+          <button class="orderButton" data-package="Pakej 4 - RM 35.20 (1 ID, 4 Peranti)">Order</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="order-form" style="display:none;">
+  <section class="order-form" id="orderSection">
     <div class="container">
       <h2>Tempah Sekarang</h2>
-      <form id="orderForm" action="https://wa.me/601136237443" method="get" target="_blank">
-        <input type="text" name="name" placeholder="Nama Anda" required>
-        <input type="email" name="email" placeholder="Email Anda" required>
-        <input type="tel" name="phone" placeholder="Nombor Telefon" required>
-        <select name="package" required>
-          <option value="" disabled selected>Pilih Paket</option>
-          <option value="Paket 1 - RM 8.80">Paket 1 - RM 8.80 (1 ID, 1 Peranti)</option>
-          <option value="Paket 2 - RM 17.60">Paket 2 - RM 17.60 (1 ID, 2 Peranti)</option>
-          <option value="Paket 3 - RM 26.40">Paket 3 - RM 26.40 (1 ID, 3 Peranti)</option>
-          <option value="Paket 4 - RM 35.20">Paket 4 - RM 35.20 (1 ID, 4 Peranti)</option>
+      <form id="orderForm">
+        <input type="text" id="name" placeholder="Nama Anda" required />
+        <input type="email" id="email" placeholder="Email Anda" required />
+        <input type="tel" id="phone" placeholder="Nombor Telefon" required />
+        <select id="package" required>
+          <option value="" disabled selected>Pilih Pakej</option>
+          <option value="Pakej 1 - RM 8.80 (1 ID, 1 Peranti)">Pakej 1 - RM 8.80 (1 ID, 1 Peranti)</option>
+          <option value="Pakej 2 - RM 17.60 (1 ID, 2 Peranti)">Pakej 2 - RM 17.60 (1 ID, 2 Peranti)</option>
+          <option value="Pakej 3 - RM 26.40 (1 ID, 3 Peranti)">Pakej 3 - RM 26.40 (1 ID, 3 Peranti)</option>
+          <option value="Pakej 4 - RM 35.20 (1 ID, 4 Peranti)">Pakej 4 - RM 35.20 (1 ID, 4 Peranti)</option>
         </select>
         <button type="submit">Hantar Tempahan</button>
       </form>
@@ -321,27 +250,45 @@
 
   <footer>
     <div class="container">
-      <p>© 2025 NeckleNj. Semua hak cipta terpelihara.</p>
-      <p><a href="http://wa.me/601136237443" target="_blank">Hubungi Kami via WhatsApp</a></p>
+      <p>&copy; 2025 NeckleNj. Semua hak cipta terpelihara.</p>
+      <p><a href="https://wa.me/601136237443" target="_blank">Hubungi Kami via WhatsApp</a></p>
       <div class="contact-info">
-        <span>Email: <a href="mailto:mokm32888@gmail.com">mokm32888@gmail.com</a></span>
-        <span>Telefon: <a href="tel:+601136237443">011-36237443</a></span>
+        <p>Email: <a href="mailto:mokm32888@gmail.com">mokm32888@gmail.com</a></p>
+        <p>Telefon: <a href="tel:+601136237443">011-36237443</a></p>
       </div>
     </div>
   </footer>
 
   <script>
+    // Tunjuk borang bila klik pakej
     document.querySelectorAll(".orderButton").forEach(button => {
-      button.addEventListener("click", function() {
+      button.addEventListener("click", function () {
         const packageSelected = this.getAttribute("data-package");
-
-        // Update the package in the form
-        document.querySelector('select[name="package"]').value = packageSelected;
-
-        // Show the order form
-        document.querySelector('.order-form').style.display = 'block';
+        document.getElementById("package").value = packageSelected;
+        document.querySelector(".order-form").style.display = "block";
+        document.getElementById("orderSection").scrollIntoView({ behavior: "smooth" });
       });
     });
+
+    // Proses & buka WhatsApp
+    document.getElementById("orderForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const packageSelected = document.getElementById("package").value;
+
+      const message = `Tempahan Baru dari Website:%0A
+Nama: ${name}%0A
+Email: ${email}%0A
+Nombor Telefon: ${phone}%0A
+Pakej Dipilih: ${packageSelected}`;
+
+      const whatsappUrl = `https://wa.me/601136237443?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    });
   </script>
+
 </body>
 </html>
