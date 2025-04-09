@@ -116,6 +116,55 @@
       display: block;
       margin-top: 10px;
     }
+
+    /* Styling untuk pricing section */
+    .pricing-options {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .pricing-option {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 22%;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .pricing-option h3 {
+      font-size: 2rem;
+      color: #ff6347;
+    }
+
+    .pricing-option p {
+      font-size: 1.2rem;
+      margin: 15px 0;
+    }
+
+    .pricing-option span {
+      display: block;
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    .pricing-option button {
+      background-color: #ff6347;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .pricing-option button:hover {
+      background-color: #ff4500;
+    }
+
   </style>
 </head>
 <body>
@@ -166,8 +215,43 @@
   <section class="pricing">
     <div class="container">
       <h2>Harga PROMO Sekarang:</h2>
-      <p><strong>RMXX sahaja – Lifetime Access!</strong></p>
-      <button id="orderButton">ORDER SEKARANG</button>
+      <div class="pricing-options">
+        <!-- Paket 1 -->
+        <div class="pricing-option">
+          <h3>Pakage 1</h3>
+          <p>1 ID, 1 Peranti</p>
+          <span>RM 8.80</span>
+          <p>Lifetime Access</p>
+          <button id="package1Button">ORDER PAKET 1</button>
+        </div>
+        
+        <!-- Paket 2 -->
+        <div class="pricing-option">
+          <h3>Pakage 2</h3>
+          <p>1 ID, 2 Peranti</p>
+          <span>RM 17.60</span>
+          <p>Lifetime Access</p>
+          <button id="package2Button">ORDER PAKET 2</button>
+        </div>
+
+        <!-- Paket 3 -->
+        <div class="pricing-option">
+          <h3>Pakage 3</h3>
+          <p>1 ID, 3 Peranti</p>
+          <span>RM 26.40</span>
+          <p>Lifetime Access</p>
+          <button id="package3Button">ORDER PAKET 3</button>
+        </div>
+
+        <!-- Paket 4 -->
+        <div class="pricing-option">
+          <h3>Pakage 4</h3>
+          <p>1 ID, 4 Peranti</p>
+          <span>RM 35.20</span>
+          <p>Lifetime Access</p>
+          <button id="package4Button">ORDER PAKET 4</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -184,8 +268,23 @@
 
   <script>
     // scripts.js
-    document.getElementById("orderButton").addEventListener("click", function() {
-      alert("Terima kasih kerana memilih NeckleNj! Anda akan diarahkan ke WhatsApp.");
+    document.getElementById("package1Button").addEventListener("click", function() {
+      alert("Terima kasih kerana memilih Paket 1! Anda akan diarahkan ke WhatsApp.");
+      window.location.href = "https://wa.me/yourwhatsapplink"; // Gantikan dengan link WhatsApp anda
+    });
+
+    document.getElementById("package2Button").addEventListener("click", function() {
+      alert("Terima kasih kerana memilih Paket 2! Anda akan diarahkan ke WhatsApp.");
+      window.location.href = "https://wa.me/yourwhatsapplink"; // Gantikan dengan link WhatsApp anda
+    });
+
+    document.getElementById("package3Button").addEventListener("click", function() {
+      alert("Terima kasih kerana memilih Paket 3! Anda akan diarahkan ke WhatsApp.");
+      window.location.href = "https://wa.me/yourwhatsapplink"; // Gantikan dengan link WhatsApp anda
+    });
+
+    document.getElementById("package4Button").addEventListener("click", function() {
+      alert("Terima kasih kerana memilih Paket 4! Anda akan diarahkan ke WhatsApp.");
       window.location.href = "https://wa.me/yourwhatsapplink"; // Gantikan dengan link WhatsApp anda
     });
   </script>
