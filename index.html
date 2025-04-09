@@ -3,151 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Necklenj | OTT Navigator</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>NeckleNj - OTT Navigator Lifetime + VOD</title>
   <style>
-    body {
+    /* styles.css */
+    * {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0f0f0f;
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
     header {
-      background-color: #1c1c1c;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
-    nav a {
-      margin-left: 1.5rem;
-      color: #facc15;
-      text-decoration: none;
-    }
-    nav a:hover {
-      color: #fde047;
-    }
-    .hero {
+      background-color: #222;
+      color: white;
+      padding: 50px 0;
       text-align: center;
-      padding: 6rem 2rem;
-      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
     }
-    .hero h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
+
+    header span {
+      color: #ff6347;
     }
-    .btn {
-      background-color: #facc15;
-      color: #000;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background-color: #fde047;
-    }
+
     section {
-      padding: 4rem 2rem;
-      text-align: center;
+      padding: 50px 0;
     }
-    .features, .pricing {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
     }
-    .card {
-      background-color: #2a2a2a;
-      padding: 2rem;
-      border-radius: 1rem;
+
+    h2 {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
-    .highlight {
-      background-color: #facc15;
-      color: #000;
+
+    ul {
+      list-style-type: none;
     }
+
+    ul li {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .features ul li {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    button {
+      background-color: #ff6347;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff4500;
+    }
+
     footer {
-      background-color: #1c1c1c;
+      background-color: #222;
+      color: white;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #aaa;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: #ff6347;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1 style="color: #facc15; font-weight: 700; font-size: 1.8rem;">Necklenj</h1>
-    <nav>
-      <a href="#features">Ciri-ciri</a>
-      <a href="#pricing">Harga</a>
-      <a href="#contact">Hubungi</a>
-    </nav>
+    <div class="container">
+      <h1>Selamat Datang ke <span>NeckleNj</span></h1>
+      <p>Hiburan Tanpa Batasan, Lifetime Access untuk Playlist & VOD!</p>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>OTT Navigator Premium</h2>
-    <p>Tonton semua saluran TV, filem & siaran langsung dengan lancar tanpa gangguan.</p>
-    <a href="#pricing" class="btn">Langgan Sekarang</a>
-  </section>
-
-  <section id="features">
-    <h3 style="font-size: 2rem; margin-bottom: 2rem; font-weight: 600;">Kenapa Pilih Necklenj?</h3>
-    <div class="features">
-      <div class="card">
-        <h4>Akses 24/7</h4>
-        <p>Tonton bila-bila masa, tanpa had.</p>
-      </div>
-      <div class="card">
-        <h4>Saluran Penuh</h4>
-        <p>Ribuan saluran dari seluruh dunia dalam HD & 4K.</p>
-      </div>
-      <div class="card">
-        <h4>Mudah Digunakan</h4>
-        <p>Support penuh untuk Android TV & OTT Navigator.</p>
-      </div>
+  <section class="intro">
+    <div class="container">
+      <h2>Bayangkan...</h2>
+      <ul>
+        <li>📺 Menonton saluran premium dari seluruh dunia</li>
+        <li>🎞 Akses ke filem terkini & siri popular</li>
+        <li>⚡️ Tanpa lag, tanpa sekatan, tanpa kos tersembunyi</li>
+      </ul>
+      <p><strong>Hanya dengan satu ID playlist – dan ianya seumur hidup!</strong></p>
     </div>
   </section>
 
-  <section id="pricing" style="background-color: #1a1a1a;">
-    <h3 style="font-size: 2rem; margin-bottom: 2rem; font-weight: 600;">Pelan Harga</h3>
-    <div class="pricing">
-      <div class="card">
-        <h4>1 Bulan</h4>
-        <p style="font-size: 1.5rem; font-weight: bold;">RM25</p>
-        <p>Akses penuh 30 hari</p>
-        <a class="btn" href="#">Langgan</a>
-      </div>
-      <div class="card highlight">
-        <h4>3 Bulan</h4>
-        <p style="font-size: 1.5rem; font-weight: bold;">RM70</p>
-        <p>Lebih jimat & stabil</p>
-        <a class="btn" href="#">Langgan</a>
-      </div>
-      <div class="card">
-        <h4>12 Bulan</h4>
-        <p style="font-size: 1.5rem; font-weight: bold;">RM250</p>
-        <p>Pakej paling berbaloi untuk setahun</p>
-        <a class="btn" href="#">Langgan</a>
-      </div>
+  <section class="features">
+    <div class="container">
+      <h2>Kenapa Pilih NeckleNj?</h2>
+      <ul>
+        <li>✅ <strong>Lifetime ID Playlist</strong> – Bayar sekali, nikmati selamanya</li>
+        <li>✅ <strong>Lengkap dengan VOD</strong> – Filem, drama, rancangan hiburan & banyak lagi</li>
+        <li>✅ <strong>Sokongan OTT Navigator</strong> – Aplikasi paling stabil & mesra pengguna</li>
+        <li>✅ <strong>Kualiti HD & 4K</strong> – Visual tajam, pengalaman menonton premium</li>
+        <li>✅ <strong>Aktif Segera</strong> – Tak perlu tunggu, kami setup untuk anda terus jalan!</li>
+      </ul>
     </div>
   </section>
 
-  <section id="contact">
-    <h3 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 600;">Hubungi Kami</h3>
-    <p>WhatsApp: <a href="https://wa.me/60123456789" style="color: #facc15; text-decoration: underline;">+60 12-345 6789</a></p>
-    <p>Email: <a href="mailto:support@necklenj.com" style="color: #facc15; text-decoration: underline;">support@necklenj.com</a></p>
+  <section class="testimonials">
+    <div class="container">
+      <h2>Testimoni Pelanggan Kami</h2>
+      <blockquote>
+        <p>“Murah, mudah & memang berbaloi! Semua saluran jalan smooth.” – <strong>Amirul, KL</strong></p>
+      </blockquote>
+      <blockquote>
+        <p>“Anak-anak happy tengok kartun. Saya pula layan movie Korea.” – <strong>Siti, JB</strong></p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="container">
+      <h2>Harga PROMO Sekarang:</h2>
+      <p><strong>RMXX sahaja – Lifetime Access!</strong></p>
+      <button id="orderButton">ORDER SEKARANG</button>
+    </div>
   </section>
 
   <footer>
-    © 2025 Necklenj. Semua Hak Terpelihara.
+    <div class="container">
+      <p>© 2025 NeckleNj. Semua hak cipta terpelihara.</p>
+      <p><a href="https://wa.me/yourwhatsapplink" target="_blank">Hubungi Kami via WhatsApp</a></p>
+    </div>
   </footer>
+
+  <script>
+    // scripts.js
+    document.getElementById("orderButton").addEventListener("click", function() {
+      alert("Terima kasih kerana memilih NeckleNj! Anda akan diarahkan ke WhatsApp.");
+      window.location.href = "https://wa.me/yourwhatsapplink"; // Gantikan dengan link WhatsApp anda
+    });
+  </script>
 </body>
 </html>
