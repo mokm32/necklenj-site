@@ -191,15 +191,58 @@
       color: #009acd;
     }
 
-    @media (max-width: 768px) {
-      .package-container {
-        flex-direction: column;
-        align-items: center;
-      }
+    /* Chatbot styles */
+    #chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background-color: #00bfff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
 
-      form {
-        width: 90%;
-      }
+    #chatbot .chat-header {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    #chatbot .chat-body {
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 5px;
+    }
+
+    #chatbot .chat-body p {
+      background-color: #1b4e80;
+      padding: 10px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+
+    #chatbot .chat-footer input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    #chatbot .chat-footer button {
+      background-color: #009acd;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+
+    #chatbot .chat-footer button:hover {
+      background-color: #008bb9;
     }
   </style>
 </head>
@@ -287,5 +330,46 @@
       <a href="https://youtube.com/@gohgaming95?si=U7BckUfPdkN0svKq" target="_blank">YouTube</a>
     </div>
   </footer>
+
+  <!-- Chatbot -->
+  <div id="chatbot">
+    <div class="chat-header">
+      <strong>Chat with Us</strong>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <p>Hi! Ada apa yang boleh kami bantu?</p>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="user-input" placeholder="Tanya sesuatu..." onkeydown="if(event.key === 'Enter'){sendMessage()}">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      let userInput = document.getElementById("user-input").value.trim();
+      if(userInput !== "") {
+        let chatBody = document.getElementById("chat-body");
+        let newMessage = document.createElement("p");
+        newMessage.textContent = userInput;
+        chatBody.appendChild(newMessage);
+
+        // Respond based on user input
+        let botMessage = document.createElement("p");
+        if (userInput.toLowerCase().includes("pakej")) {
+          botMessage.textContent = "Kami ada 4 pakej, setiap pakej memberikan akses kepada peranti berbeza.";
+        } else if (userInput.toLowerCase().includes("proses")) {
+          botMessage.textContent = "Proses untuk mendapatkan ID OTT Navigator tidak lebih dari 5 minit.";
+        } else if (userInput.toLowerCase().includes("id ott")) {
+          botMessage.textContent = "ID OTT Navigator memberikan akses kepada ribuan saluran dan VOD.";
+        } else {
+          botMessage.textContent = "Bolehkah saya bantu dengan soalan lain?";
+        }
+        chatBody.appendChild(botMessage);
+        document.getElementById("user-input").value = "";  // Clear input field
+        chatBody.scrollTop = chatBody.scrollHeight;  // Scroll to bottom
+      }
+    }
+  </script>
 </body>
 </html>
