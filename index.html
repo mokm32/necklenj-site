@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Necklenj | OTT Navigator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+    header {
+      background-color: #1c1c1c;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      color: #facc15;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #fde047;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background-color: #facc15;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #fde047;
+    }
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .features, .pricing {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .card {
+      background-color: #2a2a2a;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+    .highlight {
+      background-color: #facc15;
+      color: #000;
+    }
+    footer {
+      background-color: #1c1c1c;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="color: #facc15; font-weight: 700; font-size: 1.8rem;">Necklenj</h1>
+    <nav>
+      <a href="#features">Ciri-ciri</a>
+      <a href="#pricing">Harga</a>
+      <a href="#contact">Hubungi</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>OTT Navigator Premium</h2>
+    <p>Tonton semua saluran TV, filem & siaran langsung dengan lancar tanpa gangguan.</p>
+    <a href="#pricing" class="btn">Langgan Sekarang</a>
+  </section>
+
+  <section id="features">
+    <h3 style="font-size: 2rem; margin-bottom: 2rem; font-weight: 600;">Kenapa Pilih Necklenj?</h3>
+    <div class="features">
+      <div class="card">
+        <h4>Akses 24/7</h4>
+        <p>Tonton bila-bila masa, tanpa had.</p>
+      </div>
+      <div class="card">
+        <h4>Saluran Penuh</h4>
+        <p>Ribuan saluran dari seluruh dunia dalam HD & 4K.</p>
+      </div>
+      <div class="card">
+        <h4>Mudah Digunakan</h4>
+        <p>Support penuh untuk Android TV & OTT Navigator.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="background-color: #1a1a1a;">
+    <h3 style="font-size: 2rem; margin-bottom: 2rem; font-weight: 600;">Pelan Harga</h3>
+    <div class="pricing">
+      <div class="card">
+        <h4>1 Bulan</h4>
+        <p style="font-size: 1.5rem; font-weight: bold;">RM25</p>
+        <p>Akses penuh 30 hari</p>
+        <a class="btn" href="#">Langgan</a>
+      </div>
+      <div class="card highlight">
+        <h4>3 Bulan</h4>
+        <p style="font-size: 1.5rem; font-weight: bold;">RM70</p>
+        <p>Lebih jimat & stabil</p>
+        <a class="btn" href="#">Langgan</a>
+      </div>
+      <div class="card">
+        <h4>12 Bulan</h4>
+        <p style="font-size: 1.5rem; font-weight: bold;">RM250</p>
+        <p>Pakej paling berbaloi untuk setahun</p>
+        <a class="btn" href="#">Langgan</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3 style="font-size: 2rem; margin-bottom: 1rem; font-weight: 600;">Hubungi Kami</h3>
+    <p>WhatsApp: <a href="https://wa.me/60123456789" style="color: #facc15; text-decoration: underline;">+60 12-345 6789</a></p>
+    <p>Email: <a href="mailto:support@necklenj.com" style="color: #facc15; text-decoration: underline;">support@necklenj.com</a></p>
+  </section>
+
+  <footer>
+    © 2025 Necklenj. Semua Hak Terpelihara.
+  </footer>
+</body>
+</html>
