@@ -196,31 +196,37 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 300px;
-      background-color: #00bfff;
+      width: 320px;
+      max-height: 400px;
+      background-color: #1b4e80;
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     #chatbot .chat-header {
-      text-align: center;
       font-size: 1.2rem;
       margin-bottom: 10px;
+      font-weight: bold;
     }
 
     #chatbot .chat-body {
-      max-height: 300px;
+      max-height: 250px;
       overflow-y: auto;
       padding: 5px;
     }
 
     #chatbot .chat-body p {
-      background-color: #1b4e80;
+      background-color: #00bfff;
       padding: 10px;
       margin-bottom: 5px;
       border-radius: 5px;
+      max-width: 80%;
+      word-wrap: break-word;
     }
 
     #chatbot .chat-footer input {
@@ -232,17 +238,23 @@
     }
 
     #chatbot .chat-footer button {
-      background-color: #009acd;
+      background-color: #00bfff;
       color: white;
       border: none;
       padding: 10px;
       width: 100%;
       margin-top: 5px;
       border-radius: 5px;
+      cursor: pointer;
     }
 
     #chatbot .chat-footer button:hover {
-      background-color: #008bb9;
+      background-color: #009acd;
+    }
+
+    #chatbot .chat-footer input:focus, 
+    #chatbot .chat-footer button:focus {
+      outline: none;
     }
   </style>
 </head>
@@ -363,11 +375,12 @@
         } else if (userInput.toLowerCase().includes("id ott")) {
           botMessage.textContent = "ID OTT Navigator memberikan akses kepada ribuan saluran dan VOD.";
         } else {
-          botMessage.textContent = "Bolehkah saya bantu dengan soalan lain?";
+          botMessage.textContent = "Bolehkah saya bantu lagi?";
         }
         chatBody.appendChild(botMessage);
-        document.getElementById("user-input").value = "";  // Clear input field
-        chatBody.scrollTop = chatBody.scrollHeight;  // Scroll to bottom
+
+        document.getElementById("user-input").value = "";
+        chatBody.scrollTop = chatBody.scrollHeight;
       }
     }
   </script>
