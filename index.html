@@ -279,11 +279,12 @@
       const phone = document.getElementById("phone").value.trim();
       const packageSelected = document.getElementById("package").value;
 
-      const message = `Tempahan Baru dari Website:%0A
-Nama: ${name}%0A
-Email: ${email}%0A
-Nombor Telefon: ${phone}%0A
-Pakej Dipilih: ${packageSelected}`;
+      const message =
+        `Tempahan Baru dari Website:\n` +
+        `Nama: ${name}\n` +
+        `Email: ${email}\n` +
+        `Nombor Telefon: ${phone}\n` +
+        `Pakej Dipilih: ${packageSelected}`;
 
       const whatsappUrl = `https://wa.me/601136237443?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
