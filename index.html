@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ✅ Google Search Console Verification -->
+  <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="tAlOue1TbNspSDAu26Y7AZZQhJ7qwTNYkSqBS_CQIxs" />
 
-  <!-- ✅ SEO Meta Tags -->
+  <!-- SEO Meta Tags -->
   <title>Necklenj - Handmade & Unik</title>
   <meta name="description" content="Necklenj - Koleksi produk handmade unik dan bergaya dari Malaysia.">
   <meta name="keywords" content="necklenj, ott navigator, ott tv, ott navigator lifetime, jual id ott navigator, jual id ott tv, id ott murah, malaysia">
   <meta name="robots" content="index, follow">
 
-  <!-- ✅ Open Graph (Paparan Cantik di WhatsApp/Facebook) -->
+  <!-- Open Graph (Paparan Cantik di WhatsApp/Facebook) -->
   <meta property="og:title" content="Necklenj - Jual ID OTT">
   <meta property="og:description" content="Jual ID OTT Termurah dan Terpercaya Di Malaysia.">
   <meta property="og:image" content="https://i.ibb.co/mrNKFM6V/Untitled-design.png">
@@ -65,6 +65,31 @@
       margin: auto;
     }
 
+    .promo {
+      padding: 2rem 1rem;
+      background-color: #f39c12;
+      text-align: center;
+      color: #0b1d3a;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 700px;
+    }
+
+    .promo h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .promo p {
+      font-size: 1.1rem;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
     .channel-list {
       padding: 2rem 1rem;
       background-color: #14375d;
@@ -73,6 +98,7 @@
 
     .channel-list h2 {
       color: #00bfff;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
     }
 
@@ -124,6 +150,22 @@
 
     .package p {
       font-size: 0.95rem;
+    }
+
+    .package .price {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .package .original-price {
+      text-decoration: line-through;
+      color: #ff4d4d;
+      margin-right: 0.5rem;
+    }
+
+    .package .discounted-price {
+      color: #28a745;
+      font-weight: bold;
     }
 
     .package .button-container {
@@ -236,6 +278,100 @@
       font-weight: bold;
     }
 
+    .testimonials {
+      padding: 2rem 1rem;
+      background-color: #0e2a4d;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      color: #00bfff;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .testimonial-container.fade-out {
+      opacity: 0;
+    }
+
+    .testimonial-card {
+      background-color: #1b4e80;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-card p {
+      font-size: 0.95rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .customer-name {
+      font-style: italic;
+      color: #00bfff;
+    }
+
+    .rating {
+      color: #ffd700;
+      font-size: 1.2rem;
+    }
+
+    .faq {
+      padding: 2rem 1rem;
+      background-color: #0e2a4d;
+      text-align: center;
+    }
+
+    .faq h2 {
+      color: #00bfff;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-item {
+      max-width: 700px;
+      margin: 0 auto 1rem;
+    }
+
+    .faq-question {
+      width: 100%;
+      background-color: #1b4e80;
+      color: #ffffff;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .faq-question:hover {
+      background-color: #00bfff;
+    }
+
+    .faq-answer {
+      display: none;
+      background-color: #14375d;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .faq-answer.active {
+      display: block;
+    }
+
     form {
       padding: 2rem 1rem;
       max-width: 400px;
@@ -279,18 +415,6 @@
       transform: scale(1.02);
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: #0a2540;
-      border-top: 2px solid #00bfff;
-      font-size: 0.9rem;
-    }
-
-    a {
-      color: #00bfff;
-    }
-
     .payment-methods {
       text-align: center;
       background-color: #0e2a4d;
@@ -316,8 +440,85 @@
       margin: 1rem 0;
     }
 
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #0a2540;
+      border-top: 2px solid #00bfff;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #00bfff;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float img:hover {
+      transform: scale(1.1);
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background-color: #00bfff;
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      transition: opacity 0.3s;
+      z-index: 1000;
+    }
+
+    .scroll-top.show {
+      display: block;
+    }
+
+    .scroll-top:hover {
+      background-color: #009acd;
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #28a745;
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1000;
+    }
+
+    .notification.show {
+      opacity: 1;
+    }
+
     @media (max-width: 768px) {
       .package-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .testimonial-container {
         flex-direction: column;
         align-items: center;
       }
@@ -369,6 +570,12 @@
     </p>
   </section>
 
+  <section class="promo">
+    <h2>Tawaran Terhad!</h2>
+    <p>Dapatkan <strong>3% diskaun</strong> Sempena Hari Merdeka dalam masa 3 hari!</p>
+    <div id="countdown"></div>
+  </section>
+
   <section class="channel-list">
     <h2>📺 Senarai Saluran</h2>
     <ul>
@@ -393,71 +600,7 @@
     </ul>
   </section>
 
-  <section class="package-container">
-    <div class="package">
-      <h3>Pakej 1</h3>
-      <p>1 ID untuk 1 Peranti</p>
-      <p><strong>RM8.00</strong> Lifetime</p>
-      <div class="button-container">
-        <button onclick="addToCart('Pakej 1', 8.00)">Tambah ke Troli</button>
-        <button class="buy-now" onclick="buyNow('Pakej 1', 8.00)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="package">
-      <h3>Pakej 2</h3>
-      <p>1 ID untuk 2 Peranti</p>
-      <p><strong>RM16.00</strong> Lifetime</p>
-      <div class="button-container">
-        <button onclick="addToCart('Pakej 2', 16.00)">Tambah ke Troli</button>
-        <button class="buy-now" onclick="buyNow('Pakej 2', 16.00)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="package">
-      <h3>Pakej 3</h3>
-      <p>1 ID untuk 3 Peranti</p>
-      <p><strong>RM24.00</strong> Lifetime</p>
-      <div class="button-container">
-        <button onclick="addToCart('Pakej 3', 24.00)">Tambah ke Troli</button>
-        <button class="buy-now" onclick="buyNow('Pakej 3', 24.00)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="package">
-      <h3>Pakej 4</h3>
-      <p>1 ID untuk 4 Peranti</p>
-      <p><strong>RM32.00</strong> Lifetime</p>
-      <div class="button-container">
-        <button onclick="addToCart('Pakej 4', 32.00)">Tambah ke Troli</button>
-        <button class="buy-now" onclick="buyNow('Pakej 4', 32.00)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="package">
-      <h3>Pakej Agen A</h3>
-      <p>1 ID untuk 20 Peranti</p>
-      <p><strong>RM150.00</strong> Lifetime</p>
-      <div class="button-container">
-        <button onclick="addToCart('Pakej Agen A', 150.00)">Tambah ke Troli</button>
-        <button class="buy-now" onclick="buyNow('Pakej Agen A', 150.00)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="package">
-      <h3>Pakej Agen B</h3>
-      <p>1 ID untuk 50 Peranti</p>
-      <p><strong>RM325.00</strong> Lifetime</p>
-      <div class="button-container">
-        <button onclick="addToCart('Pakej Agen B', 325.00)">Tambah ke Troli</button>
-        <button class="buy-now" onclick="buyNow('Pakej Agen B', 325.00)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="package">
-      <h3>Pakej Agen C</h3>
-      <p>1 ID untuk 100 Peranti</p>
-      <p><strong>RM600.00</strong> Lifetime</p>
-      <div class="button-container">
-        <button onclick="addToCart('Pakej Agen C', 600.00)">Tambah ke Troli</button>
-        <button class="buy-now" onclick="buyNow('Pakej Agen C', 600.00)">Beli Sekarang</button>
-      </div>
-    </div>
-  </section>
+  <section class="package-container" id="package-container"></section>
 
   <section class="cart-container">
     <h2>Troli Anda</h2>
@@ -485,89 +628,331 @@
     </div>
   </section>
 
+  <section class="testimonials">
+    <h2>Ulasan Pelanggan</h2>
+    <div class="testimonial-container" id="testimonial-container"></div>
+  </section>
+
+  <section class="faq">
+    <h2>Soalan Lazim (FAQ)</h2>
+    <div class="faq-item">
+      <button class="faq-question">Apakah OTT Navigator dan bagaimana ia berfungsi?</button>
+      <div class="faq-answer">
+        <p>OTT Navigator ialah aplikasi untuk menstrim saluran TV dan VOD. Selepas pembelian, anda akan menerima ID playlist untuk akses seumur hidup.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Adakah saya perlu membayar setiap bulan?</button>
+      <div class="faq-answer">
+        <p>Tidak, semua pakej adalah bayaran sekali sahaja untuk akses seumur hidup.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Bagaimana saya menerima ID selepas pembayaran?</button>
+      <div class="faq-answer">
+        <p>Selepas pembayaran disahkan, kami akan menghantar ID playlist melalui WhatsApp atau e-mel dalam masa 24 jam.</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     📞 Hubungi: <a href="tel:+601136237443">011-3623 7443</a><br/>
     📧 Email: <a href="mailto:mokm32888@gmail.com">mokm32888@gmail.com</a><br/>
     💬 WhatsApp: <a href="https://wa.me/601136237443">Klik untuk WhatsApp</a>
   </footer>
 
+  <div class="whatsapp-float">
+    <a href="https://wa.me/601136237443?text=Saya%20berminat%20dengan%20pakej%20NeckleNj.%20Boleh%20berikan%20maklumat%20lanjut?" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+  </div>
+
+  <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+  <div class="notification" id="notification"></div>
+
   <script>
     let cart = [];
+    let isDiscountActive = true;
 
-    function addToCart(name, price) {
-      const existingItem = cart.find(item => item.name === name);
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({ name, price, quantity: 1 });
-      }
-      updateCart();
+    // Define packages with original and discounted prices
+    const packages = [
+      { name: 'Pakej 1', originalPrice: 8.00, discountedPrice: (8.00 * 0.97).toFixed(2), devices: '1 Peranti' },
+      { name: 'Pakej 2', originalPrice: 16.00, discountedPrice: (16.00 * 0.97).toFixed(2), devices: '2 Peranti' },
+      { name: 'Pakej 3', originalPrice: 24.00, discountedPrice: (24.00 * 0.97).toFixed(2), devices: '3 Peranti' },
+      { name: 'Pakej 4', originalPrice: 32.00, discountedPrice: (32.00 * 0.97).toFixed(2), devices: '4 Peranti' },
+      { name: 'Pakej Agen A', originalPrice: 150.00, discountedPrice: (150.00 * 0.97).toFixed(2), devices: '20 Peranti' },
+      { name: 'Pakej Agen B', originalPrice: 325.00, discountedPrice: (325.00 * 0.97).toFixed(2), devices: '50 Peranti' },
+      { name: 'Pakej Agen C', originalPrice: 600.00, discountedPrice: (600.00 * 0.97).toFixed(2), devices: '100 Peranti' }
+    ];
+
+    function getCurrentPrice(originalPrice) {
+      const pkg = packages.find(p => p.originalPrice === originalPrice);
+      return isDiscountActive ? parseFloat(pkg.discountedPrice) : pkg.originalPrice;
     }
 
-    function buyNow(name, price) {
-      cart = [{ name, price, quantity: 1 }]; // Clear cart and add only the selected package
-      updateCart();
-      window.scrollTo({ top: document.getElementById('orderForm').offsetTop - 20, behavior: 'smooth' });
+    function addToCart(name, originalPrice) {
+      try {
+        const currentPrice = getCurrentPrice(originalPrice);
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({ name, price: currentPrice, originalPrice, quantity: 1 });
+        }
+        updateCart();
+        showNotification('Pakej ditambah ke troli!');
+      } catch (error) {
+        console.error('Error in addToCart:', error);
+        showNotification('Ralat semasa menambah pakej. Sila cuba lagi.');
+      }
+    }
+
+    function buyNow(name, originalPrice) {
+      try {
+        const currentPrice = getCurrentPrice(originalPrice);
+        cart = [{ name, price: currentPrice, originalPrice, quantity: 1 }];
+        updateCart();
+        showNotification('Pakej dipilih untuk pembelian!');
+        window.scrollTo({ top: document.getElementById('orderForm').offsetTop - 20, behavior: 'smooth' });
+      } catch (error) {
+        console.error('Error in buyNow:', error);
+        showNotification('Ralat semasa memilih pakej. Sila cuba lagi.');
+      }
     }
 
     function changeQuantity(index, change) {
-      cart[index].quantity += change;
-      if (cart[index].quantity <= 0) {
-        cart.splice(index, 1);
+      try {
+        cart[index].quantity += change;
+        if (cart[index].quantity <= 0) {
+          cart.splice(index, 1);
+        } else {
+          cart[index].price = getCurrentPrice(cart[index].originalPrice); // Update price if discount status changed
+        }
+        updateCart();
+      } catch (error) {
+        console.error('Error in changeQuantity:', error);
+        showNotification('Ralat semasa mengemas kini kuantiti. Sila cuba lagi.');
       }
-      updateCart();
     }
 
     function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCart();
+      try {
+        cart.splice(index, 1);
+        updateCart();
+        showNotification('Pakej dibuang dari troli!');
+      } catch (error) {
+        console.error('Error in removeFromCart:', error);
+        showNotification('Ralat semasa membuang pakej. Sila cuba lagi.');
+      }
     }
 
     function updateCart() {
-      const cartItems = document.getElementById('cart-items');
-      const cartTotal = document.getElementById('cart-total');
-      const pakejField = document.getElementById('pakej');
+      try {
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const pakejField = document.getElementById('pakej');
 
-      cartItems.innerHTML = '';
-      let total = 0;
+        cartItems.innerHTML = '';
+        let total = 0;
 
-      cart.forEach((item, index) => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <span>${item.name} - RM${item.price.toFixed(2)}</span>
-          <div class="quantity-controls">
-            <button onclick="changeQuantity(${index}, -1)">−</button>
-            <span>${item.quantity}</span>
-            <button onclick="changeQuantity(${index}, 1)">+</button>
-          </div>
-          <span>RM${itemTotal.toFixed(2)}</span>
-          <button class="remove-btn" onclick="removeFromCart(${index})">Buang</button>
-        `;
-        cartItems.appendChild(li);
-      });
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <span>${item.name} - RM${item.price.toFixed(2)}</span>
+            <div class="quantity-controls">
+              <button onclick="changeQuantity(${index}, -1)">−</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity(${index}, 1)">+</button>
+            </div>
+            <span>RM${itemTotal.toFixed(2)}</span>
+            <button class="remove-btn" onclick="removeFromCart(${index})">Buang</button>
+          `;
+          cartItems.appendChild(li);
+        });
 
-      cartTotal.textContent = total.toFixed(2);
-
-      // Update the textarea with cart contents
-      pakejField.value = cart.map(item => `${item.name} x${item.quantity} - RM${(item.price * item.quantity).toFixed(2)}`).join('\n') + (cart.length > 0 ? `\nJumlah: RM${total.toFixed(2)}` : '');
+        cartTotal.textContent = total.toFixed(2);
+        pakejField.value = cart.length > 0
+          ? cart.map(item => `${item.name} x${item.quantity} - RM${(item.price * item.quantity).toFixed(2)}`).join('\n') + `\nJumlah: RM${total.toFixed(2)}`
+          : '';
+      } catch (error) {
+        console.error('Error in updateCart:', error);
+        showNotification('Ralat semasa mengemas kini troli. Sila cuba lagi.');
+      }
     }
 
     function submitOrder(e) {
-      e.preventDefault();
-      const nama = document.getElementById('nama').value;
-      const telefon = document.getElementById('telefon').value;
-      const pakej = document.getElementById('pakej').value;
-      if (!pakej) {
-        alert('Sila tambah pakej ke troli sebelum membuat tempahan.');
-        return;
+      try {
+        e.preventDefault();
+        const nama = document.getElementById('nama').value.trim();
+        const telefon = document.getElementById('telefon').value.trim();
+        const pakej = document.getElementById('pakej').value.trim();
+
+        if (!nama || !telefon) {
+          showNotification('Sila isi nama dan nombor telefon.');
+          return;
+        }
+
+        if (!pakej || cart.length === 0) {
+          showNotification('Sila tambah pakej ke troli sebelum membuat tempahan.');
+          return;
+        }
+
+        const msg = `Tempahan Baru:\nNama: ${nama}\nTelefon: ${telefon}\nPakej:\n${pakej}`;
+        const url = `https://wa.me/601136237443?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+        showNotification('Tempahan dihantar ke WhatsApp!');
+        // Reset form and cart after submission
+        document.getElementById('orderForm').reset();
+        cart = [];
+        updateCart();
+      } catch (error) {
+        console.error('Error in submitOrder:', error);
+        showNotification('Ralat semasa menghantar tempahan. Sila cuba lagi.');
       }
-      const msg = `Tempahan Baru:\nNama: ${nama}\nTelefon: ${telefon}\nPakej:\n${pakej}`;
-      const url = `https://wa.me/601136237443?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
     }
+
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 2000);
+    }
+
+    function updatePackagePrices() {
+      try {
+        const packageContainer = document.getElementById('package-container');
+        packageContainer.innerHTML = '';
+        packages.forEach(pkg => {
+          const priceDisplay = isDiscountActive
+            ? `<span class="original-price">RM${pkg.originalPrice.toFixed(2)}</span> <span class="discounted-price">RM${pkg.discountedPrice}</span>`
+            : `RM${pkg.originalPrice.toFixed(2)}`;
+          const div = document.createElement('div');
+          div.className = 'package';
+          div.innerHTML = `
+            <h3>${pkg.name}</h3>
+            <p>1 ID untuk ${pkg.devices}</p>
+            <p class="price">${priceDisplay} Lifetime</p>
+            <div class="button-container">
+              <button onclick="addToCart('${pkg.name}', ${pkg.originalPrice})">Tambah ke Troli</button>
+              <button class="buy-now" onclick="buyNow('${pkg.name}', ${pkg.originalPrice})">Beli Sekarang</button>
+            </div>
+          `;
+          packageContainer.appendChild(div);
+        });
+        updateCart(); // Ensure cart reflects current prices
+      } catch (error) {
+        console.error('Error in updatePackagePrices:', error);
+        showNotification('Ralat semasa mengemas kini harga pakej. Sila cuba lagi.');
+      }
+    }
+
+    function startCountdown() {
+      const endDate = new Date('2025-08-31T23:59:59').getTime();
+      const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        if (distance < 0) {
+          clearInterval(countdown);
+          document.getElementById('countdown').textContent = 'Tawaran Tamat!';
+          isDiscountActive = false;
+          document.querySelector('.promo').style.display = 'none'; // Hide promo section
+          updatePackagePrices();
+        }
+      }, 1000);
+    }
+
+    // Initialize page
+    try {
+      startCountdown();
+      updatePackagePrices();
+    } catch (error) {
+      console.error('Error during initialization:', error);
+      showNotification('Ralat semasa memuatkan laman. Sila muat semula.');
+    }
+
+    window.addEventListener('scroll', () => {
+      const scrollTopBtn = document.querySelector('.scroll-top');
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const answer = button.nextElementSibling;
+        answer.classList.toggle('active');
+      });
+    });
+
+    // Testimonials slideshow
+    const testimonials = [
+      { quote: "Saya sangat berpuas hati! Saluran HD dan VOD lengkap, tiada gangguan!", name: "Ahmad R., Kuala Lumpur", rating: "★★★★★" },
+      { quote: "Pemasangan pantas dan harga berpatutan. Pasti akan cadangkan kepada rakan!", name: "Siti N., Penang", rating: "★★★★★" },
+      { quote: "Akses seumur hidup tanpa bayaran bulanan, sungguh hebat! Kualiti gambar terbaik.", name: "Rahim K., Johor Bahru", rating: "★★★★★" },
+      { quote: "Ribuan saluran dari seluruh dunia, anak-anak saya suka bahagian kids channel.", name: "Fatimah A., Ipoh", rating: "★★★★★" },
+      { quote: "Setup mudah, sokongan pelanggan cepat balas. Nilai wang yang bagus!", name: "Zainal M., Kuching", rating: "★★★★★" },
+      { quote: "Filem terkini dan siri popular sentiasa tersedia, tak perlu tunggu lama.", name: "Noraini S., Kota Kinabalu", rating: "★★★★★" },
+      { quote: "Tiada lag ketika streaming, walaupun di kawasan luar bandar. Terbaik!", name: "Hassan B., Alor Setar", rating: "★★★★★" },
+      { quote: "Saya boleh tonton di TV dan phone saya, sangat fleksibel.", name: "Lina T., Shah Alam", rating: "★★★★★" },
+      { quote: "Koleksi VOD sangat lengkap, dari drama Asia hingga Hollywood blockbuster.", name: "Azlan P., Melaka", rating: "★★★★★" },
+      { quote: "Harga murah untuk akses lifetime, tak ada kos tersembunyi.", name: "Sofea H., Seremban", rating: "★★★★★" },
+      { quote: "Aplikasi OTT Navigator stabil, tak crash macam app lain.", name: "Ibrahim Y., Kuantan", rating: "★★★★★" },
+      { quote: "Saluran sukan live tanpa buffer, sempurna untuk peminat bola.", name: "Maria L., Petaling Jaya", rating: "★★★★★" },
+      { quote: "Saya dah cadangkan pada keluarga, semua puas hati.", name: "Karim D., Taiping", rating: "★★★★★" },
+      { quote: "Visual 4K tajam, rasa macam di pawagam.", name: "Aishah F., Butterworth", rating: "★★★★★" },
+      { quote: "Aktif segera selepas bayar, tak perlu tunggu berhari-hari.", name: "Fauzi R., Sungai Petani", rating: "★★★★★" },
+      { quote: "Banyak saluran berita antarabangsa, sentiasa update.", name: "Nadia Q., George Town", rating: "★★★★★" },
+      { quote: "Anak-anak belajar dari documentary channel, sangat berguna.", name: "Syed O., Kangar", rating: "★★★★★" },
+      { quote: "Hiburan tanpa batasan, boleh tonton anytime anywhere.", name: "Rina E., Kuala Terengganu", rating: "★★★★★" },
+      { quote: "Servis pelanggan mesra, jawab semua soalan dengan cepat.", name: "Harun G., Temerloh", rating: "★★★★★" },
+      { quote: "Tak ada iklan mengganggu, pengalaman menonton premium.", name: "Zulaikha J., Bentong", rating: "★★★★★" }
+    ];
+
+    let currentIndex = 0;
+    const container = document.getElementById('testimonial-container');
+
+    function displayTestimonials() {
+      container.classList.add('fade-out');
+      setTimeout(() => {
+        container.innerHTML = '';
+        for (let i = 0; i < 2; i++) {
+          const idx = (currentIndex + i) % testimonials.length;
+          const testimonial = testimonials[idx];
+          const card = document.createElement('div');
+          card.className = 'testimonial-card';
+          card.innerHTML = `
+            <p>"${testimonial.quote}"</p>
+            <p class="customer-name">– ${testimonial.name}</p>
+            <p class="rating">${testimonial.rating}</p>
+          `;
+          container.appendChild(card);
+        }
+        container.classList.remove('fade-out');
+        currentIndex = (currentIndex + 2) % testimonials.length;
+      }, 500); // Match transition duration
+    }
+
+    displayTestimonials();
+    setInterval(displayTestimonials, 6000);
   </script>
 </body>
 </html>
+
+
 
