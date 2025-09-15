@@ -415,49 +415,43 @@
       transform: scale(1.02);
     }
 
-    #payment {
+    .payment-methods {
       text-align: center;
-      padding: 50px 20px;
-      background: #0e2a4d;
+      background-color: #0e2a4d;
+      padding: 2rem 1rem;
     }
 
-    .payment-container {
+    .payment-methods h2 {
+      color: #00bfff;
+      font-size: 1.8rem;
+    }
+
+    .payment-methods .bank-info-container {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 2rem;
       flex-wrap: wrap;
-      margin-top: 20px;
+      max-width: 700px;
+      margin: 1rem auto;
     }
 
-    .payment-method {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      width: 260px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .payment-method:hover {
-      transform: translateY(-5px);
-    }
-
-    .payment-method img {
-      max-width: 200px;
-      margin: 10px auto;
+    .payment-methods .bank-info {
+      font-size: 1.1rem;
+      color: #00bfff;
+      background-color: #14375d;
+      padding: 1rem;
       border-radius: 8px;
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
     }
 
-    .payment-method h3 {
+    .payment-methods .bank-info img {
+      width: 200px;
+      height: auto;
       margin-bottom: 10px;
-      font-size: 18px;
-      color: #333;
-    }
-
-    .payment-method p {
-      font-size: 14px;
-      color: #555;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
     footer {
@@ -562,6 +556,11 @@
         width: 100%;
         justify-content: flex-end;
       }
+
+      .payment-methods .bank-info-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -636,28 +635,22 @@
     <button type="submit">Hantar ke WhatsApp</button>
   </form>
 
-  <!-- Payment Section -->
-  <section id="payment">
-    <h2>💳 Kaedah Pembayaran</h2>
-    <p>Sila buat pembayaran menggunakan salah satu kaedah berikut:</p>
-
-    <div class="payment-container">
-      <!-- QR Online Banking -->
-      <div class="payment-method">
-        <h3>Online Banking</h3>
-        <a href="https://i.ibb.co/MyMqmVVQ/onlinebank-qr.png" target="_blank">
-          <img src="https://i.ibb.co/MyMqmVVQ/onlinebank-qr.png" alt="QR Online Banking">
+  <section class="payment-methods">
+    <h2>Kaedah Pembayaran</h2>
+    <div class="bank-info-container">
+      <div class="bank-info">
+        <a href="https://i.ibb.co/0jtvDs9h/photo-2025-05-23-20-36-48.jpg" target="_blank">
+          <img src="https://i.ibb.co/0jtvDs9h/photo-2025-05-23-20-36-48.jpg" alt="Bukti Pembayaran Bank">
         </a>
-        <p>Imbas untuk bayar melalui Online Banking</p>
+        <p><strong>Bank: Hong Leong Bank</strong></p>
+        <p>Sila hantar bukti pembayaran kepada kami melalui WhatsApp.</p>
       </div>
-
-      <!-- QR E-Wallet / TNG -->
-      <div class="payment-method">
-        <h3>E-Wallet / TNG</h3>
-        <a href="https://i.ibb.co/MyMqmVVQ/tng-qr.png" target="_blank">
-          <img src="https://i.ibb.co/MyMqmVVQ/tng-qr.png" alt="QR E-Wallet TNG">
+      <div class="bank-info">
+        <a href="https://i.ibb.co/MyMqmVVQ/photo-2025-05-23-20-36-48.jpg" target="_blank">
+          <img src="https://i.ibb.co/MyMqmVVQ/photo-2025-05-23-20-36-48.jpg" alt="Bukti Pembayaran E-Wallet/TNG">
         </a>
-        <p>Imbas untuk bayar melalui TNG / E-Wallet</p>
+        <p><strong>E-Wallet: Touch 'n Go</strong></p>
+        <p>Sila hantar bukti pembayaran kepada kami melalui WhatsApp.</p>
       </div>
     </div>
   </section>
