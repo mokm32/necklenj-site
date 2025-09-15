@@ -416,49 +416,49 @@
     }
 
     #payment {
-    text-align: center;
-    padding: 50px 20px;
-    background: #0e2a4d;
-  }
+      text-align: center;
+      padding: 50px 20px;
+      background: #0e2a4d;
+    }
 
-  .payment-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-  }
+    .payment-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
 
-  .payment-method {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 260px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-  }
+    .payment-method {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 260px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
 
-  .payment-method:hover {
-    transform: translateY(-5px);
-  }
+    .payment-method:hover {
+      transform: translateY(-5px);
+    }
 
-  .payment-method img {
-    max-width: 200px;
-    margin: 10px auto;
-    border-radius: 8px;
-  }
+    .payment-method img {
+      max-width: 200px;
+      margin: 10px auto;
+      border-radius: 8px;
+    }
 
-  .payment-method h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-  }
+    .payment-method h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333;
+    }
 
-  .payment-method p {
-    font-size: 14px;
-    color: #555;
-  }
+    .payment-method p {
+      font-size: 14px;
+      color: #555;
+    }
 
     footer {
       text-align: center;
@@ -637,26 +637,30 @@
   </form>
 
   <!-- Payment Section -->
-<section id="payment">
-  <h2>💳 Kaedah Pembayaran</h2>
-  <p>Sila buat pembayaran menggunakan salah satu kaedah berikut:</p>
+  <section id="payment">
+    <h2>💳 Kaedah Pembayaran</h2>
+    <p>Sila buat pembayaran menggunakan salah satu kaedah berikut:</p>
 
-  <div class="payment-container">
-    <!-- QR Online Banking -->
-    <div class="payment-method">
-      <h3>Online Banking</h3>
-      <img src="https://i.ibb.co/MyMqmVVQ/onlinebank-qr.png" alt="QR Online Banking">
-      <p>Imbas untuk bayar melalui Online Banking</p>
-    </div>
+    <div class="payment-container">
+      <!-- QR Online Banking -->
+      <div class="payment-method">
+        <h3>Online Banking</h3>
+        <a href="https://i.ibb.co/MyMqmVVQ/onlinebank-qr.png" target="_blank">
+          <img src="https://i.ibb.co/MyMqmVVQ/onlinebank-qr.png" alt="QR Online Banking">
+        </a>
+        <p>Imbas untuk bayar melalui Online Banking</p>
+      </div>
 
-    <!-- QR E-Wallet / TNG -->
-    <div class="payment-method">
-      <h3>E-Wallet / TNG</h3>
-      <img src="https://i.ibb.co/MyMqmVVQ/tng-qr.png" alt="QR E-Wallet TNG">
-      <p>Imbas untuk bayar melalui TNG / E-Wallet</p>
+      <!-- QR E-Wallet / TNG -->
+      <div class="payment-method">
+        <h3>E-Wallet / TNG</h3>
+        <a href="https://i.ibb.co/MyMqmVVQ/tng-qr.png" target="_blank">
+          <img src="https://i.ibb.co/MyMqmVVQ/tng-qr.png" alt="QR E-Wallet TNG">
+        </a>
+        <p>Imbas untuk bayar melalui TNG / E-Wallet</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section class="testimonials">
     <h2>Ulasan Pelanggan</h2>
@@ -983,10 +987,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
