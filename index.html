@@ -11,12 +11,12 @@
   <!-- SEO Meta Tags -->
   <title>Necklenj - Handmade & Unik</title>
   <meta name="description" content="Necklenj - Koleksi produk handmade unik dan bergaya dari Malaysia.">
-  <meta name="keywords" content="necklenj, ott navigator, ott tv, ott navigator lifetime, jual id ott navigator, jual id ott tv, id ott murah, malaysia">
+  <meta name="keywords" content="necklenj, ott navigator, ott tv, ott navigator lifetime, jual id ott navigator, jual id ott tv, id ott murah, malaysia, idm trial reset, internet download manager">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph (Paparan Cantik di WhatsApp/Facebook) -->
-  <meta property="og:title" content="Necklenj - Jual ID OTT">
-  <meta property="og:description" content="Jual ID OTT Termurah dan Terpercaya Di Malaysia.">
+  <meta property="og:title" content="Necklenj - Jual ID OTT & Produk Tambahan">
+  <meta property="og:description" content="Jual ID OTT Termurah dan Terpercaya Di Malaysia serta produk tambahan seperti IDM Trial Reset.">
   <meta property="og:image" content="https://i.ibb.co/mrNKFM6V/Untitled-design.png">
   <meta property="og:url" content="https://mokm32.github.io/necklenj-site/">
   <meta property="og:type" content="website">
@@ -196,6 +196,89 @@
 
     .package .buy-now:hover {
       background-color: #218838;
+    }
+
+    .additional-products {
+      padding: 2rem 1rem;
+      background-color: #0e2a4d;
+      text-align: center;
+    }
+
+    .additional-products h2 {
+      color: #00bfff;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .folder-toggle {
+      background-color: #1b4e80;
+      color: #ffffff;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      max-width: 300px;
+      margin: 0 auto 1rem;
+    }
+
+    .folder-toggle img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .folder-toggle:hover {
+      background-color: #00bfff;
+    }
+
+    .additional-products-container {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .additional-products-container.active {
+      display: flex;
+    }
+
+    .additional-product {
+      background-color: #14375d;
+      border: 1px solid #1b4e80;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 260px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+    }
+
+    .additional-product img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .additional-product h3 {
+      color: #00bfff;
+      font-size: 1.2rem;
+    }
+
+    .additional-product p {
+      font-size: 0.95rem;
+    }
+
+    .additional-product .price {
+      font-size: 1rem;
+      margin: 0.5rem 0;
     }
 
     .cart-container {
@@ -532,6 +615,11 @@
         align-items: center;
       }
 
+      .additional-products-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
       .testimonial-container {
         flex-direction: column;
         align-items: center;
@@ -542,6 +630,11 @@
       }
 
       .package .button-container {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .additional-product .button-container {
         flex-direction: column;
         gap: 8px;
       }
@@ -567,7 +660,7 @@
 <body>
   <header>
     <h1>NeckleNj</h1>
-    <p>Jual ID OTT Navigator + VOD Lifetime</p>
+    <p>Jual ID OTT Navigator + VOD Lifetime & Produk Tambahan</p>
   </header>
 
   <section class="hero">
@@ -621,6 +714,26 @@
 
   <section class="package-container" id="package-container"></section>
 
+  <section class="additional-products">
+    <h2>Produk Tambahan</h2>
+    <button class="folder-toggle" onclick="toggleAdditionalProducts()">
+      <img src="https://i.ibb.co/4nVCkHkd/unnamed-2.png" alt="Folder Icon">
+      Lihat Produk Tambahan
+    </button>
+    <div class="additional-products-container" id="additional-products-container">
+      <div class="additional-product">
+        <img src="https://i.ibb.co/5yV1Gh3/Copy-of-APK-FILE.jpg" alt="IDM Trial Reset">
+        <h3>IDM Trial Reset - Internet Download Manager</h3>
+        <p>Perisian untuk muat turun pantas dan reset percubaan</p>
+        <p class="price">RM15.00</p>
+        <div class="button-container">
+          <button onclick="addToCart('IDM Trial Reset', 15.00)">Tambah ke Troli</button>
+          <button class="buy-now" onclick="buyNow('IDM Trial Reset', 15.00)">Beli Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cart-container">
     <h2>Troli Anda</h2>
     <ul id="cart-items"></ul>
@@ -646,8 +759,8 @@
         <p>Sila hantar bukti pembayaran kepada kami melalui WhatsApp.</p>
       </div>
       <div class="bank-info">
-        <a href="https://i.ibb.co/1Y8Hkqqj/Imej-Whats-App-2025-09-15-pada-08-54-40-0fff60a5.jpg" target="_blank">
-          <img src="https://i.ibb.co/1Y8Hkqqj/Imej-Whats-App-2025-09-15-pada-08-54-40-0fff60a5.jpg" alt="Bukti Pembayaran E-Wallet/TNG">
+        <a href="https://i.ibb.co/MyMqmVVQ/photo-2025-05-23-20-36-48.jpg" target="_blank">
+          <img src="https://i.ibb.co/MyMqmVVQ/photo-2025-05-23-20-36-48.jpg" alt="Bukti Pembayaran E-Wallet/TNG">
         </a>
         <p><strong>E-Wallet: Touch 'n Go</strong></p>
         <p>Sila hantar bukti pembayaran kepada kami melalui WhatsApp.</p>
@@ -713,9 +826,17 @@
       { name: 'Pakej Agen C', originalPrice: 600.00, discountedPrice: (600.00 * 0.97).toFixed(2), devices: '100 Peranti' }
     ];
 
+    // Define additional products
+    const additionalProducts = [
+      { name: 'IDM Trial Reset', originalPrice: 15.00, description: 'Perisian untuk muat turun pantas dan reset percubaan' }
+    ];
+
     function getCurrentPrice(originalPrice) {
       const pkg = packages.find(p => p.originalPrice === originalPrice);
-      return isDiscountActive ? parseFloat(pkg.discountedPrice) : pkg.originalPrice;
+      if (pkg) {
+        return isDiscountActive ? parseFloat(pkg.discountedPrice) : pkg.originalPrice;
+      }
+      return originalPrice; // For additional products with no discount
     }
 
     function addToCart(name, originalPrice) {
@@ -728,10 +849,10 @@
           cart.push({ name, price: currentPrice, originalPrice, quantity: 1 });
         }
         updateCart();
-        showNotification('Pakej ditambah ke troli!');
+        showNotification('Produk ditambah ke troli!');
       } catch (error) {
         console.error('Error in addToCart:', error);
-        showNotification('Ralat semasa menambah pakej. Sila cuba lagi.');
+        showNotification('Ralat semasa menambah produk. Sila cuba lagi.');
       }
     }
 
@@ -740,11 +861,11 @@
         const currentPrice = getCurrentPrice(originalPrice);
         cart = [{ name, price: currentPrice, originalPrice, quantity: 1 }];
         updateCart();
-        showNotification('Pakej dipilih untuk pembelian!');
+        showNotification('Produk dipilih untuk pembelian!');
         window.scrollTo({ top: document.getElementById('orderForm').offsetTop - 20, behavior: 'smooth' });
       } catch (error) {
         console.error('Error in buyNow:', error);
-        showNotification('Ralat semasa memilih pakej. Sila cuba lagi.');
+        showNotification('Ralat semasa memilih produk. Sila cuba lagi.');
       }
     }
 
@@ -767,10 +888,10 @@
       try {
         cart.splice(index, 1);
         updateCart();
-        showNotification('Pakej dibuang dari troli!');
+        showNotification('Produk dibuang dari troli!');
       } catch (error) {
         console.error('Error in removeFromCart:', error);
-        showNotification('Ralat semasa membuang pakej. Sila cuba lagi.');
+        showNotification('Ralat semasa membuang produk. Sila cuba lagi.');
       }
     }
 
@@ -823,7 +944,7 @@
         }
 
         if (!pakej || cart.length === 0) {
-          showNotification('Sila tambah pakej ke troli sebelum membuat tempahan.');
+          showNotification('Sila tambah produk ke troli sebelum membuat tempahan.');
           return;
         }
 
@@ -875,6 +996,16 @@
       } catch (error) {
         console.error('Error in updatePackagePrices:', error);
         showNotification('Ralat semasa mengemas kini harga pakej. Sila cuba lagi.');
+      }
+    }
+
+    function toggleAdditionalProducts() {
+      try {
+        const container = document.getElementById('additional-products-container');
+        container.classList.toggle('active');
+      } catch (error) {
+        console.error('Error in toggleAdditionalProducts:', error);
+        showNotification('Ralat semasa menunjukkan produk tambahan. Sila cuba lagi.');
       }
     }
 
@@ -980,5 +1111,3 @@
   </script>
 </body>
 </html>
-
-
