@@ -11,12 +11,12 @@
   <!-- SEO Meta Tags -->
   <title>Necklenj - Handmade & Unik</title>
   <meta name="description" content="Necklenj - Koleksi produk handmade unik dan bergaya dari Malaysia.">
-  <meta name="keywords" content="necklenj, ott navigator, ott tv, ott navigator lifetime, jual id ott navigator, jual id ott tv, id ott murah, malaysia, idm trial reset, internet download manager">
+  <meta name="keywords" content="necklenj, ott navigator, ott tv, ott navigator lifetime, jual id ott navigator, jual id ott tv, id ott murah, malaysia">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph (Paparan Cantik di WhatsApp/Facebook) -->
-  <meta property="og:title" content="Necklenj - Jual ID OTT & Produk Tambahan">
-  <meta property="og:description" content="Jual ID OTT Termurah dan Terpercaya Di Malaysia serta produk tambahan seperti IDM Trial Reset.">
+  <meta property="og:title" content="Necklenj - Jual ID OTT">
+  <meta property="og:description" content="Jual ID OTT Termurah dan Terpercaya Di Malaysia.">
   <meta property="og:image" content="https://i.ibb.co/mrNKFM6V/Untitled-design.png">
   <meta property="og:url" content="https://mokm32.github.io/necklenj-site/">
   <meta property="og:type" content="website">
@@ -212,89 +212,6 @@
 
     .package .buy-now:hover {
       background-color: #218838;
-    }
-
-    .additional-products {
-      padding: 2rem 1rem;
-      background-color: #0e2a4d;
-      text-align: center;
-    }
-
-    .additional-products h2 {
-      color: #00bfff;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .folder-toggle {
-      background-color: #1b4e80;
-      color: #ffffff;
-      padding: 1rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      max-width: 300px;
-      margin: 0 auto 1rem;
-    }
-
-    .folder-toggle img {
-      width: 24px;
-      height: 24px;
-    }
-
-    .folder-toggle:hover {
-      background-color: #00bfff;
-    }
-
-    .additional-products-container {
-      display: none;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .additional-products-container.active {
-      display: flex;
-    }
-
-    .additional-product {
-      background-color: #14375d;
-      border: 1px solid #1b4e80;
-      padding: 1rem;
-      border-radius: 10px;
-      width: 260px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
-    }
-
-    .additional-product img {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-    }
-
-    .additional-product h3 {
-      color: #00bfff;
-      font-size: 1.2rem;
-    }
-
-    .additional-product p {
-      font-size: 0.95rem;
-    }
-
-    .additional-product .price {
-      font-size: 1rem;
-      margin: 0.5rem 0;
     }
 
     .cart-container {
@@ -631,11 +548,6 @@
         align-items: center;
       }
 
-      .additional-products-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
       .testimonial-container {
         flex-direction: column;
         align-items: center;
@@ -651,11 +563,6 @@
       }
 
       .package .device-buttons {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .additional-product .button-container {
         flex-direction: column;
         gap: 8px;
       }
@@ -681,7 +588,7 @@
 <body>
   <header>
     <h1>NeckleNj</h1>
-    <p>Jual ID OTT Navigator + VOD Lifetime & Produk Tambahan</p>
+    <p>Jual ID OTT Navigator + VOD Lifetime</p>
   </header>
 
   <section class="hero">
@@ -734,26 +641,6 @@
   </section>
 
   <section class="package-container" id="package-container"></section>
-
-  <section class="additional-products">
-    <h2>Produk Tambahan</h2>
-    <button class="folder-toggle" onclick="toggleAdditionalProducts()">
-      <img src="https://i.ibb.co/4nVCkHkd/unnamed-2.png" alt="Folder Icon">
-      klik Disini
-    </button>
-    <div class="additional-products-container" id="additional-products-container">
-      <div class="additional-product">
-        <img src="https://i.ibb.co/5yV1Gh3/Copy-of-APK-FILE.jpg" alt="IDM Trial Reset">
-        <h3>IDM Trial Reset - Internet Download Manager</h3>
-        <p>Perisian untuk muat turun pantas dan reset percubaan</p>
-        <p class="price">RM15.00</p>
-        <div class="button-container">
-          <button onclick="addToCart('IDM Trial Reset', 15.00, 1, 'IDM Trial Reset')">Tambah ke Troli</button>
-          <button class="buy-now" onclick="buyNow('IDM Trial Reset', 15.00, 1, 'IDM Trial Reset')">Beli Sekarang</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="cart-container">
     <h2>Troli Anda</h2>
@@ -842,28 +729,21 @@
       { name: '3 Bulan', basePrice: 8.00, duration: '3 Bulan', devices: [1, 2, 3, 4], extraDeviceCost: 3.00 }
     ];
 
-    // Define additional products
-    const additionalProducts = [
-      { name: 'IDM Trial Reset', basePrice: 15.00, description: 'Perisian untuk muat turun pantas dan reset percubaan' }
-    ];
-
     function calculatePrice(basePrice, devices, extraDeviceCost) {
       const additionalDevices = devices - 1;
       const total = basePrice + (additionalDevices * extraDeviceCost);
       return isDiscountActive ? (total * 0.97).toFixed(2) : total.toFixed(2);
     }
 
-    function addToCart(name, basePrice, devices, duration = '') {
+    function addToCart(name, basePrice, devices, duration) {
       try {
         const pkg = packages.find(p => p.name === name);
-        let price;
-        let displayName = name;
-        if (pkg) {
-          price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
-          displayName = `${name} (${devices} Peranti)`;
-        } else {
-          price = isDiscountActive ? (basePrice * 0.97).toFixed(2) : basePrice.toFixed(2);
+        if (!pkg) {
+          showNotification('Pakej tidak ditemui. Sila cuba lagi.');
+          return;
         }
+        const price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
+        const displayName = `${name} (${devices} Peranti)`;
         const existingItem = cart.find(item => item.displayName === displayName);
         if (existingItem) {
           existingItem.quantity += 1;
@@ -871,31 +751,29 @@
           cart.push({ name, displayName, price, basePrice, devices, duration, quantity: 1 });
         }
         updateCart();
-        showNotification('Produk ditambah ke troli!');
+        showNotification('Pakej ditambah ke troli!');
       } catch (error) {
         console.error('Error in addToCart:', error);
-        showNotification('Ralat semasa menambah produk. Sila cuba lagi.');
+        showNotification('Ralat semasa menambah pakej. Sila cuba lagi.');
       }
     }
 
-    function buyNow(name, basePrice, devices, duration = '') {
+    function buyNow(name, basePrice, devices, duration) {
       try {
         const pkg = packages.find(p => p.name === name);
-        let price;
-        let displayName = name;
-        if (pkg) {
-          price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
-          displayName = `${name} (${devices} Peranti)`;
-        } else {
-          price = isDiscountActive ? (basePrice * 0.97).toFixed(2) : basePrice.toFixed(2);
+        if (!pkg) {
+          showNotification('Pakej tidak ditemui. Sila cuba lagi.');
+          return;
         }
+        const price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
+        const displayName = `${name} (${devices} Peranti)`;
         cart = [{ name, displayName, price, basePrice, devices, duration, quantity: 1 }];
         updateCart();
-        showNotification('Produk dipilih untuk pembelian!');
+        showNotification('Pakej dipilih untuk pembelian!');
         window.scrollTo({ top: document.getElementById('orderForm').offsetTop - 20, behavior: 'smooth' });
       } catch (error) {
         console.error('Error in buyNow:', error);
-        showNotification('Ralat semasa memilih produk. Sila cuba lagi.');
+        showNotification('Ralat semasa memilih pakej. Sila cuba lagi.');
       }
     }
 
@@ -916,10 +794,10 @@
       try {
         cart.splice(index, 1);
         updateCart();
-        showNotification('Produk dibuang dari troli!');
+        showNotification('Pakej dibuang dari troli!');
       } catch (error) {
         console.error('Error in removeFromCart:', error);
-        showNotification('Ralat semasa membuang produk. Sila cuba lagi.');
+        showNotification('Ralat semasa membuang pakej. Sila cuba lagi.');
       }
     }
 
@@ -972,7 +850,7 @@
         }
 
         if (!pakej || cart.length === 0) {
-          showNotification('Sila tambah produk ke troli sebelum membuat tempahan.');
+          showNotification('Sila tambah pakej ke troli sebelum membuat tempahan.');
           return;
         }
 
@@ -1044,16 +922,6 @@
       } catch (error) {
         console.error('Error in updatePackagePrices:', error);
         showNotification('Ralat semasa mengemas kini harga pakej. Sila cuba lagi.');
-      }
-    }
-
-    function toggleAdditionalProducts() {
-      try {
-        const container = document.getElementById('additional-products-container');
-        container.classList.toggle('active');
-      } catch (error) {
-        console.error('Error in toggleAdditionalProducts:', error);
-        showNotification('Ralat semasa menunjukkan produk tambahan. Sila cuba lagi.');
       }
     }
 
