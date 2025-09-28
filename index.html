@@ -157,15 +157,31 @@
       margin: 0.5rem 0;
     }
 
-    .package .original-price {
-      text-decoration: line-through;
-      color: #ff4d4d;
-      margin-right: 0.5rem;
+    .package .device-buttons {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
     }
 
-    .package .discounted-price {
-      color: #28a745;
-      font-weight: bold;
+    .package .device-buttons.active {
+      display: flex;
+    }
+
+    .package .device-btn {
+      background-color: #1b4e80;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .package .device-btn:hover {
+      background-color: #00bfff;
+      transform: scale(1.05);
     }
 
     .package .button-container {
@@ -634,6 +650,11 @@
         gap: 8px;
       }
 
+      .package .device-buttons {
+        flex-direction: column;
+        gap: 8px;
+      }
+
       .additional-product .button-container {
         flex-direction: column;
         gap: 8px;
@@ -727,8 +748,8 @@
         <p>Perisian untuk muat turun pantas dan reset percubaan</p>
         <p class="price">RM15.00</p>
         <div class="button-container">
-          <button onclick="addToCart('IDM Trial Reset', 15.00)">Tambah ke Troli</button>
-          <button class="buy-now" onclick="buyNow('IDM Trial Reset', 15.00)">Beli Sekarang</button>
+          <button onclick="addToCart('IDM Trial Reset', 15.00, 1, 'IDM Trial Reset')">Tambah ke Troli</button>
+          <button class="buy-now" onclick="buyNow('IDM Trial Reset', 15.00, 1, 'IDM Trial Reset')">Beli Sekarang</button>
         </div>
       </div>
     </div>
@@ -815,38 +836,39 @@
     let cart = [];
     let isDiscountActive = true;
 
-    // Define packages with original and discounted prices
+    // Define packages with base prices and device options
     const packages = [
-      { name: 'Pakej 1', originalPrice: 8.00, discountedPrice: (8.00 * 0.97).toFixed(2), devices: '1 Peranti' },
-      { name: 'Pakej 2', originalPrice: 16.00, discountedPrice: (16.00 * 0.97).toFixed(2), devices: '2 Peranti' },
-      { name: 'Pakej 3', originalPrice: 24.00, discountedPrice: (24.00 * 0.97).toFixed(2), devices: '3 Peranti' },
-      { name: 'Pakej 4', originalPrice: 32.00, discountedPrice: (32.00 * 0.97).toFixed(2), devices: '4 Peranti' },
-      { name: 'Pakej Agen A', originalPrice: 150.00, discountedPrice: (150.00 * 0.97).toFixed(2), devices: '20 Peranti' },
-      { name: 'Pakej Agen B', originalPrice: 325.00, discountedPrice: (325.00 * 0.97).toFixed(2), devices: '50 Peranti' },
-      { name: 'Pakej Agen C', originalPrice: 600.00, discountedPrice: (600.00 * 0.97).toFixed(2), devices: '100 Peranti' }
+      { name: 'ID Lifetime', basePrice: 30.00, duration: 'Lifetime', devices: [1, 2, 3, 4], extraDeviceCost: 3.00 },
+      { name: '3 Bulan', basePrice: 8.00, duration: '3 Bulan', devices: [1, 2, 3, 4], extraDeviceCost: 3.00 }
     ];
 
     // Define additional products
     const additionalProducts = [
-      { name: 'IDM Trial Reset', originalPrice: 15.00, description: 'Perisian untuk muat turun pantas dan reset percubaan' }
+      { name: 'IDM Trial Reset', basePrice: 15.00, description: 'Perisian untuk muat turun pantas dan reset percubaan' }
     ];
 
-    function getCurrentPrice(originalPrice) {
-      const pkg = packages.find(p => p.originalPrice === originalPrice);
-      if (pkg) {
-        return isDiscountActive ? parseFloat(pkg.discountedPrice) : pkg.originalPrice;
-      }
-      return originalPrice; // For additional products with no discount
+    function calculatePrice(basePrice, devices, extraDeviceCost) {
+      const additionalDevices = devices - 1;
+      const total = basePrice + (additionalDevices * extraDeviceCost);
+      return isDiscountActive ? (total * 0.97).toFixed(2) : total.toFixed(2);
     }
 
-    function addToCart(name, originalPrice) {
+    function addToCart(name, basePrice, devices, duration = '') {
       try {
-        const currentPrice = getCurrentPrice(originalPrice);
-        const existingItem = cart.find(item => item.name === name);
+        const pkg = packages.find(p => p.name === name);
+        let price;
+        let displayName = name;
+        if (pkg) {
+          price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
+          displayName = `${name} (${devices} Peranti)`;
+        } else {
+          price = isDiscountActive ? (basePrice * 0.97).toFixed(2) : basePrice.toFixed(2);
+        }
+        const existingItem = cart.find(item => item.displayName === displayName);
         if (existingItem) {
           existingItem.quantity += 1;
         } else {
-          cart.push({ name, price: currentPrice, originalPrice, quantity: 1 });
+          cart.push({ name, displayName, price, basePrice, devices, duration, quantity: 1 });
         }
         updateCart();
         showNotification('Produk ditambah ke troli!');
@@ -856,10 +878,18 @@
       }
     }
 
-    function buyNow(name, originalPrice) {
+    function buyNow(name, basePrice, devices, duration = '') {
       try {
-        const currentPrice = getCurrentPrice(originalPrice);
-        cart = [{ name, price: currentPrice, originalPrice, quantity: 1 }];
+        const pkg = packages.find(p => p.name === name);
+        let price;
+        let displayName = name;
+        if (pkg) {
+          price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
+          displayName = `${name} (${devices} Peranti)`;
+        } else {
+          price = isDiscountActive ? (basePrice * 0.97).toFixed(2) : basePrice.toFixed(2);
+        }
+        cart = [{ name, displayName, price, basePrice, devices, duration, quantity: 1 }];
         updateCart();
         showNotification('Produk dipilih untuk pembelian!');
         window.scrollTo({ top: document.getElementById('orderForm').offsetTop - 20, behavior: 'smooth' });
@@ -874,8 +904,6 @@
         cart[index].quantity += change;
         if (cart[index].quantity <= 0) {
           cart.splice(index, 1);
-        } else {
-          cart[index].price = getCurrentPrice(cart[index].originalPrice); // Update price if discount status changed
         }
         updateCart();
       } catch (error) {
@@ -909,7 +937,7 @@
           total += itemTotal;
           const li = document.createElement('li');
           li.innerHTML = `
-            <span>${item.name} - RM${item.price.toFixed(2)}</span>
+            <span>${item.displayName} - RM${item.price.toFixed(2)}</span>
             <div class="quantity-controls">
               <button onclick="changeQuantity(${index}, -1)">−</button>
               <span>${item.quantity}</span>
@@ -923,7 +951,7 @@
 
         cartTotal.textContent = total.toFixed(2);
         pakejField.value = cart.length > 0
-          ? cart.map(item => `${item.name} x${item.quantity} - RM${(item.price * item.quantity).toFixed(2)}`).join('\n') + `\nJumlah: RM${total.toFixed(2)}`
+          ? cart.map(item => `${item.displayName} x${item.quantity} - RM${(item.price * item.quantity).toFixed(2)}`).join('\n') + `\nJumlah: RM${total.toFixed(2)}`
           : '';
       } catch (error) {
         console.error('Error in updateCart:', error);
@@ -952,7 +980,6 @@
         const url = `https://wa.me/601136237443?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');
         showNotification('Tempahan dihantar ke WhatsApp!');
-        // Reset form and cart after submission
         document.getElementById('orderForm').reset();
         cart = [];
         updateCart();
@@ -971,28 +998,49 @@
       }, 2000);
     }
 
+    function toggleDeviceButtons(packageIndex) {
+      try {
+        const allDeviceButtons = document.querySelectorAll('.device-buttons');
+        allDeviceButtons.forEach((btnContainer, index) => {
+          if (index === packageIndex) {
+            btnContainer.classList.toggle('active');
+          } else {
+            btnContainer.classList.remove('active');
+          }
+        });
+      } catch (error) {
+        console.error('Error in toggleDeviceButtons:', error);
+        showNotification('Ralat semasa menunjukkan butang peranti. Sila cuba lagi.');
+      }
+    }
+
     function updatePackagePrices() {
       try {
         const packageContainer = document.getElementById('package-container');
         packageContainer.innerHTML = '';
-        packages.forEach(pkg => {
-          const priceDisplay = isDiscountActive
-            ? `<span class="original-price">RM${pkg.originalPrice.toFixed(2)}</span> <span class="discounted-price">RM${pkg.discountedPrice}</span>`
-            : `RM${pkg.originalPrice.toFixed(2)}`;
+        packages.forEach((pkg, index) => {
+          const basePriceDisplay = isDiscountActive
+            ? `<span class="original-price">RM${pkg.basePrice.toFixed(2)}</span> <span class="discounted-price">RM${(pkg.basePrice * 0.97).toFixed(2)}</span>`
+            : `RM${pkg.basePrice.toFixed(2)}`;
           const div = document.createElement('div');
           div.className = 'package';
           div.innerHTML = `
             <h3>${pkg.name}</h3>
-            <p>1 ID untuk ${pkg.devices}</p>
-            <p class="price">${priceDisplay} Lifetime</p>
+            <p>${pkg.duration}</p>
+            <p class="price">${basePriceDisplay} + RM${pkg.extraDeviceCost.toFixed(2)} per tambahan peranti</p>
             <div class="button-container">
-              <button onclick="addToCart('${pkg.name}', ${pkg.originalPrice})">Tambah ke Troli</button>
-              <button class="buy-now" onclick="buyNow('${pkg.name}', ${pkg.originalPrice})">Beli Sekarang</button>
+              <button onclick="toggleDeviceButtons(${index})">Pilih Peranti</button>
+            </div>
+            <div class="device-buttons">
+              ${pkg.devices.map(device => `
+                <button class="device-btn" onclick="addToCart('${pkg.name}', ${pkg.basePrice}, ${device}, '${pkg.duration}')">${device} Peranti - RM${calculatePrice(pkg.basePrice, device, pkg.extraDeviceCost)}</button>
+                <button class="device-btn buy-now" onclick="buyNow('${pkg.name}', ${pkg.basePrice}, ${device}, '${pkg.duration}')">Beli Sekarang (${device} Peranti)</button>
+              `).join('')}
             </div>
           `;
           packageContainer.appendChild(div);
         });
-        updateCart(); // Ensure cart reflects current prices
+        updateCart();
       } catch (error) {
         console.error('Error in updatePackagePrices:', error);
         showNotification('Ralat semasa mengemas kini harga pakej. Sila cuba lagi.');
@@ -1023,13 +1071,12 @@
           clearInterval(countdown);
           document.getElementById('countdown').textContent = 'Tawaran Tamat!';
           isDiscountActive = false;
-          document.querySelector('.promo').style.display = 'none'; // Hide promo section
+          document.querySelector('.promo').style.display = 'none';
           updatePackagePrices();
         }
       }, 1000);
     }
 
-    // Initialize page
     try {
       startCountdown();
       updatePackagePrices();
@@ -1058,7 +1105,6 @@
       });
     });
 
-    // Testimonials slideshow
     const testimonials = [
       { quote: "Saya sangat berpuas hati! Saluran HD dan VOD lengkap, tiada gangguan!", name: "Ahmad R., Kuala Lumpur", rating: "★★★★★" },
       { quote: "Pemasangan pantas dan harga berpatutan. Pasti akan cadangkan kepada rakan!", name: "Siti N., Penang", rating: "★★★★★" },
@@ -1103,7 +1149,7 @@
         }
         container.classList.remove('fade-out');
         currentIndex = (currentIndex + 2) % testimonials.length;
-      }, 500); // Match transition duration
+      }, 500);
     }
 
     displayTestimonials();
@@ -1111,6 +1157,3 @@
   </script>
 </body>
 </html>
-
-
-
