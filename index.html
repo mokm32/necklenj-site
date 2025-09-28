@@ -733,6 +733,28 @@
     </ul>
   </section>
 
+  <section class="package-container" id="package-container"></section>
+
+  <section class="additional-products">
+    <h2>Produk Tambahan</h2>
+    <button class="folder-toggle" onclick="toggleAdditionalProducts()">
+      <img src="https://i.ibb.co/4nVCkHkd/unnamed-2.png" alt="Folder Icon">
+      klik Disini
+    </button>
+    <div class="additional-products-container" id="additional-products-container">
+      <div class="additional-product">
+        <img src="https://i.ibb.co/5yV1Gh3/Copy-of-APK-FILE.jpg" alt="IDM Trial Reset">
+        <h3>IDM Trial Reset - Internet Download Manager</h3>
+        <p>Perisian untuk muat turun pantas dan reset percubaan</p>
+        <p class="price">RM15.00</p>
+        <div class="button-container">
+          <button onclick="addToCart('IDM Trial Reset', 15.00, 1, 'IDM Trial Reset')">Tambah ke Troli</button>
+          <button class="buy-now" onclick="buyNow('IDM Trial Reset', 15.00, 1, 'IDM Trial Reset')">Beli Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cart-container">
     <h2>Troli Anda</h2>
     <ul id="cart-items"></ul>
@@ -831,18 +853,16 @@
       return isDiscountActive ? (total * 0.97).toFixed(2) : total.toFixed(2);
     }
 
-    function addToCart(name, basePrice, devices = null, duration = '') {
+    function addToCart(name, basePrice, devices, duration = '') {
       try {
         const pkg = packages.find(p => p.name === name);
-        let price, displayName;
+        let price;
+        let displayName = name;
         if (pkg) {
-          // Handle package with devices
           price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
           displayName = `${name} (${devices} Peranti)`;
         } else {
-          // Handle additional products (no devices)
           price = isDiscountActive ? (basePrice * 0.97).toFixed(2) : basePrice.toFixed(2);
-          displayName = name;
         }
         const existingItem = cart.find(item => item.displayName === displayName);
         if (existingItem) {
@@ -858,18 +878,16 @@
       }
     }
 
-    function buyNow(name, basePrice, devices = null, duration = '') {
+    function buyNow(name, basePrice, devices, duration = '') {
       try {
         const pkg = packages.find(p => p.name === name);
-        let price, displayName;
+        let price;
+        let displayName = name;
         if (pkg) {
-          // Handle package with devices
           price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
           displayName = `${name} (${devices} Peranti)`;
         } else {
-          // Handle additional products (no devices)
           price = isDiscountActive ? (basePrice * 0.97).toFixed(2) : basePrice.toFixed(2);
-          displayName = name;
         }
         cart = [{ name, displayName, price, basePrice, devices, duration, quantity: 1 }];
         updateCart();
@@ -1139,5 +1157,3 @@
   </script>
 </body>
 </html>
-
-
