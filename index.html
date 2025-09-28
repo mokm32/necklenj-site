@@ -748,8 +748,8 @@
         <p>Perisian untuk muat turun pantas dan reset percubaan</p>
         <p class="price">RM15.00</p>
         <div class="button-container">
-          <button onclick="addToCart('IDM Trial Reset', 15.00, 1, 'IDM Trial Reset')">Tambah ke Troli</button>
-          <button class="buy-now" onclick="buyNow('IDM Trial Reset', 15.00, 1, 'IDM Trial Reset')">Beli Sekarang</button>
+          <button onclick="addToCart('IDM Trial Reset', 15.00)">Tambah ke Troli</button>
+          <button class="buy-now" onclick="buyNow('IDM Trial Reset', 15.00)">Beli Sekarang</button>
         </div>
       </div>
     </div>
@@ -853,16 +853,18 @@
       return isDiscountActive ? (total * 0.97).toFixed(2) : total.toFixed(2);
     }
 
-    function addToCart(name, basePrice, devices, duration = '') {
+    function addToCart(name, basePrice, devices = null, duration = '') {
       try {
         const pkg = packages.find(p => p.name === name);
-        let price;
-        let displayName = name;
+        let price, displayName;
         if (pkg) {
+          // Handle package with devices
           price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
           displayName = `${name} (${devices} Peranti)`;
         } else {
+          // Handle additional products (no devices)
           price = isDiscountActive ? (basePrice * 0.97).toFixed(2) : basePrice.toFixed(2);
+          displayName = name;
         }
         const existingItem = cart.find(item => item.displayName === displayName);
         if (existingItem) {
@@ -878,16 +880,18 @@
       }
     }
 
-    function buyNow(name, basePrice, devices, duration = '') {
+    function buyNow(name, basePrice, devices = null, duration = '') {
       try {
         const pkg = packages.find(p => p.name === name);
-        let price;
-        let displayName = name;
+        let price, displayName;
         if (pkg) {
+          // Handle package with devices
           price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
           displayName = `${name} (${devices} Peranti)`;
         } else {
+          // Handle additional products (no devices)
           price = isDiscountActive ? (basePrice * 0.97).toFixed(2) : basePrice.toFixed(2);
+          displayName = name;
         }
         cart = [{ name, displayName, price, basePrice, devices, duration, quantity: 1 }];
         updateCart();
