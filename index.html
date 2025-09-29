@@ -214,6 +214,33 @@
       background-color: #218838;
     }
 
+    .package .device-counter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .package .device-counter span {
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    .package .device-counter button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      font-size: 1rem;
+    }
+
+    .package .important-note {
+      font-size: 0.9rem;
+      color: #ff4d4d;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
     .cart-container {
       background-color: #14375d;
       padding: 2rem;
@@ -606,7 +633,8 @@
       ✅ Lengkap dengan VOD – Filem, drama, rancangan hiburan & banyak lagi<br>
       ✅ Sokongan OTT Navigator – Aplikasi paling stabil & mesra pengguna<br>
       ✅ Kualiti HD & 4K – Visual tajam, pengalaman menonton premium<br>
-      ✅ Aktif Segera – Tak perlu tunggu, kami setup untuk anda terus jalan!
+      ✅ Aktif Segera – Tak perlu tunggu, kami setup untuk anda terus jalan!<br><br>
+      <strong style="color: #ff4d4d;">Nota Penting:</strong> Bilangan peranti hanya boleh ditambahkan semasa pembelian. Selepas pembelian selesai, anda tidak boleh menambah peranti pada ID yang sama. Untuk menambah peranti, sila buat pesanan ID baru.
     </p>
   </section>
 
@@ -725,8 +753,8 @@
 
     // Define packages with base prices and device options
     const packages = [
-      { name: 'ID Lifetime', basePrice: 30.00, duration: 'Lifetime', devices: [1, 2, 3, 4], extraDeviceCost: 5.00 },
-      { name: '3 Bulan', basePrice: 8.00, duration: '3 Bulan', devices: [1, 2, 3, 4], extraDeviceCost: 5.00 }
+      { name: 'ID Lifetime', basePrice: 30.00, duration: 'Lifetime', maxDevices: 5, extraDeviceCost: 5.00 },
+      { name: '3 Bulan', basePrice: 8.00, duration: '3 Bulan', maxDevices: 5, extraDeviceCost: 5.00 }
     ];
 
     function calculatePrice(basePrice, devices, extraDeviceCost) {
@@ -740,6 +768,10 @@
         const pkg = packages.find(p => p.name === name);
         if (!pkg) {
           showNotification('Pakej tidak ditemui. Sila cuba lagi.');
+          return;
+        }
+        if (devices > pkg.maxDevices) {
+          showNotification(`Maksimum ${pkg.maxDevices} peranti dibenarkan!`);
           return;
         }
         const price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
@@ -763,6 +795,10 @@
         const pkg = packages.find(p => p.name === name);
         if (!pkg) {
           showNotification('Pakej tidak ditemui. Sila cuba lagi.');
+          return;
+        }
+        if (devices > pkg.maxDevices) {
+          showNotification(`Maksimum ${pkg.maxDevices} peranti dibenarkan!`);
           return;
         }
         const price = parseFloat(calculatePrice(pkg.basePrice, devices, pkg.extraDeviceCost));
@@ -876,19 +912,16 @@
       }, 2000);
     }
 
-    function toggleDeviceButtons(packageIndex) {
+    function updateDeviceCount(packageIndex, change) {
       try {
-        const allDeviceButtons = document.querySelectorAll('.device-buttons');
-        allDeviceButtons.forEach((btnContainer, index) => {
-          if (index === packageIndex) {
-            btnContainer.classList.toggle('active');
-          } else {
-            btnContainer.classList.remove('active');
-          }
-        });
+        const pkg = packages[packageIndex];
+        const deviceCountElement = document.getElementById(`device-count-${packageIndex}`);
+        let currentDevices = parseInt(deviceCountElement.textContent);
+        currentDevices = Math.max(1, Math.min(pkg.maxDevices, currentDevices + change));
+        deviceCountElement.textContent = currentDevices;
       } catch (error) {
-        console.error('Error in toggleDeviceButtons:', error);
-        showNotification('Ralat semasa menunjukkan butang peranti. Sila cuba lagi.');
+        console.error('Error in updateDeviceCount:', error);
+        showNotification('Ralat semasa mengemas kini bilangan peranti. Sila cuba lagi.');
       }
     }
 
@@ -906,15 +939,16 @@
             <h3>${pkg.name}</h3>
             <p>${pkg.duration}</p>
             <p class="price">${basePriceDisplay} + RM${pkg.extraDeviceCost.toFixed(2)} per tambahan peranti</p>
+            <div class="device-counter">
+              <button onclick="updateDeviceCount(${index}, -1)">−</button>
+              <span id="device-count-${index}">1</span>
+              <button onclick="updateDeviceCount(${index}, 1)">+</button>
+            </div>
             <div class="button-container">
-              <button onclick="toggleDeviceButtons(${index})">Pilih Peranti</button>
+              <button class="device-btn" onclick="addToCart('${pkg.name}', ${pkg.basePrice}, parseInt(document.getElementById('device-count-${index}').textContent), '${pkg.duration}')">Tambah ke Troli</button>
+              <button class="device-btn buy-now" onclick="buyNow('${pkg.name}', ${pkg.basePrice}, parseInt(document.getElementById('device-count-${index}').textContent), '${pkg.duration}')">Beli Sekarang</button>
             </div>
-            <div class="device-buttons">
-              ${pkg.devices.map(device => `
-                <button class="device-btn" onclick="addToCart('${pkg.name}', ${pkg.basePrice}, ${device}, '${pkg.duration}')">${device} Peranti - RM${calculatePrice(pkg.basePrice, device, pkg.extraDeviceCost)}</button>
-                <button class="device-btn buy-now" onclick="buyNow('${pkg.name}', ${pkg.basePrice}, ${device}, '${pkg.duration}')">Beli Sekarang (${device} Peranti)</button>
-              `).join('')}
-            </div>
+            <p class="important-note">Nota: Peranti hanya boleh ditambahkan semasa pembelian. Selepas pembelian, anda perlu memesan ID baru untuk menambah peranti.</p>
           `;
           packageContainer.appendChild(div);
         });
