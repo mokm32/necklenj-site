@@ -754,7 +754,8 @@
     // Define packages with base prices and device options
     const packages = [
       { name: 'ID Lifetime', basePrice: 30.00, duration: 'Lifetime', maxDevices: 5, extraDeviceCost: 5.00 },
-      { name: '3 Bulan', basePrice: 8.00, duration: '3 Bulan', maxDevices: 5, extraDeviceCost: 5.00 }
+      { name: '3 Bulan', basePrice: 8.00, duration: '3 Bulan', maxDevices: 5, extraDeviceCost: 5.00 },
+      { name: 'ID Guna Selagi Boleh', basePrice: 10.00, duration: 'Guna Selagi Boleh (Waranti 1 Bulan)', maxDevices: 5, extraDeviceCost: 5.00 }
     ];
 
     function calculatePrice(basePrice, devices, extraDeviceCost) {
@@ -948,7 +949,11 @@
               <button class="device-btn" onclick="addToCart('${pkg.name}', ${pkg.basePrice}, parseInt(document.getElementById('device-count-${index}').textContent), '${pkg.duration}')">Tambah ke Troli</button>
               <button class="device-btn buy-now" onclick="buyNow('${pkg.name}', ${pkg.basePrice}, parseInt(document.getElementById('device-count-${index}').textContent), '${pkg.duration}')">Beli Sekarang</button>
             </div>
-            <p class="important-note">Nota: Peranti hanya boleh ditambahkan semasa pembelian. Selepas pembelian, anda perlu memesan ID baru untuk menambah peranti.</p>
+            <p class="important-note">${
+              pkg.name === 'ID Guna Selagi Boleh'
+                ? 'Nota: Pakej ini adalah "Guna Selagi Boleh" yang bermaksud anda boleh terus menggunakan ID selagi ia berfungsi. Waranti ID adalah selama 1 bulan sahaja; selepas tempoh waranti tamat, tiada penggantian ID baru akan diberikan. Peranti hanya boleh ditambahkan semasa pembelian. Selepas pembelian, anda perlu memesan ID baru untuk menambah peranti.'
+                : 'Nota: Peranti hanya boleh ditambahkan semasa pembelian. Selepas pembelian, anda perlu memesan ID baru untuk menambah peranti.'
+            }</p>
           `;
           packageContainer.appendChild(div);
         });
