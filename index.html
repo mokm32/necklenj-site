@@ -95,6 +95,49 @@ body {
   .packages { grid-template-columns:1fr; }
   .channel-list ul { grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); }
 }
+
+/* RESELLER STYLE */
+.reseller-section {
+  margin-top:60px;
+  text-align:center;
+}
+
+.reseller-box {
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  color:black;
+  padding:30px;
+  border-radius:20px;
+  max-width:400px;
+  margin:20px auto;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.reseller-price {
+  font-size:32px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.reseller-box ul {
+  list-style:none;
+  margin:20px 0;
+  text-align:left;
+}
+
+.reseller-box li {
+  margin:8px 0;
+  font-weight:bold;
+}
+
+.reseller-btn {
+  background:black;
+  color:#22c55e;
+}
+
+.reseller-btn:hover {
+  background:#020617;
+  transform:scale(1.05);
+}
 </style>
 </head>
 <body>
@@ -235,6 +278,27 @@ body {
       <p><strong>E-Wallet: Touch 'n Go</strong></p>
       <p>Sila hantar bukti pembayaran kepada kami melalui WhatsApp.</p>
     </div>
+  </div>
+</section>
+
+<!-- RESELLER SECTION -->
+<section class="reseller-section">
+  <h2>🚀 Jadi Ahli Reseller NeckleNj</h2>
+  <p>Mulakan bisnes OTT anda sendiri tanpa modal besar!</p>
+
+  <div class="reseller-box">
+    <h3>🔥 Pakej Reseller</h3>
+    <p class="reseller-price">RM30 Sahaja</p>
+
+    <ul>
+      <li>✔ Akses Panel Reseller</li>
+      <li>✔ Harga Borong Murah</li>
+      <li>✔ Boleh Jual Semula ID OTT</li>
+      <li>✔ Support & Guide Disediakan</li>
+      <li>✔ Untung Tanpa Had</li>
+    </ul>
+
+    <button class="btn reseller-btn" onclick="orderReseller()">Daftar Jadi Reseller</button>
   </div>
 </section>
   
@@ -393,6 +457,24 @@ function updateWhatsAppLink(totalAmount){
 
   document.getElementById("whatsapp-checkout").href = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
   document.getElementById("whatsapp-checkout").onclick = null;
+}
+
+function orderReseller(){
+  let msg = `Saya berminat untuk daftar sebagai RESELLER NeckleNj.
+
+Detail Pendaftaran Reseller:
+Username:
+Password:
+
+Saya ingin mengetahui lebih lanjut tentang:
+- Cara sistem reseller
+- Akses panel reseller
+
+Terima kasih.`;
+
+  msg = encodeURIComponent(msg);
+
+  window.location.href = `https://wa.me/601136237443?text=${msg}`;
 }
 </script>
 
