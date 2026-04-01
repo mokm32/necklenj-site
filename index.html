@@ -319,13 +319,16 @@ body {
     </ul>
 
     <!-- FORM RESELLER -->
-  <div class="reseller-form">
-    <input type="text" id="reseller-username" placeholder="Username" required>
-    <input type="number" id="reseller-password" placeholder="Password" required>
-    <textarea id="reseller-mesej" placeholder="Mesej Anda"></textarea>
-    
-    <button class="btn reseller-btn" onclick="orderReseller()">Daftar Jadi Reseller</button>
-  </div>
+<div class="reseller-form">
+  <input type="text" id="reseller-username" placeholder="Username" required>
+  <input type="text" id="reseller-password" placeholder="Password" required>
+  <textarea id="reseller-mesej" placeholder="Mesej Anda"></textarea>
+  
+  <button class="btn reseller-btn" onclick="orderReseller()">
+    Daftar Jadi Reseller
+  </button>
+  </div> <!-- tutup reseller-form -->
+</div> <!-- tutup reseller-box -->
 </section>
   
 <div class="footer">
@@ -485,33 +488,30 @@ function updateWhatsAppLink(totalAmount){
   document.getElementById("whatsapp-checkout").onclick = null;
 }
 
-function submitReseller(){
-  const name = document.getElementById("reseller-name").value;
-  const age = document.getElementById("reseller-age").value;
-  const exp = document.getElementById("reseller-exp").value;
+function orderReseller(){
+  const username = document.getElementById("reseller-username").value;
+  const password = document.getElementById("reseller-password").value;
+  const mesej = document.getElementById("reseller-mesej").value;
 
-  // VALIDATION
-  if(name === "" || age === ""){
-    alert("Sila isi Nama dan Umur!");
+  if(username === "" || password === ""){
+    alert("Sila isi Username dan Password!");
     return;
   }
 
   let msg = `Saya ingin daftar sebagai RESELLER NeckleNj.
 
-Maklumat saya:
-username: ${Username}
-password: ${Password}
-mesej: ${Mesej anda || ""}
+Maklumat Akaun:
+Username: ${username}
+Password: ${password}
+Mesej: ${mesej || "Tiada"}
 
-Saya ingin mengetahui lebih lanjut tentang:
-- Cara sistem reseller
-- Akses panel reseller
+Saya berminat untuk mula jadi reseller dan ingin maklumat lanjut.
 
 Terima kasih.`;
 
-  msg = encodeURIComponent(msg);
+  const encodedMsg = encodeURIComponent(msg);
 
-  window.location.href = `https://wa.me/601136237443?text=${msg}`;
+  window.location.href = `https://wa.me/601136237443?text=${encodedMsg}`;
 }
 </script>
 
