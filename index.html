@@ -138,6 +138,26 @@ body {
   background:#020617;
   transform:scale(1.05);
 }
+
+.reseller-form {
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.reseller-form input,
+.reseller-form textarea {
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  font-size:14px;
+}
+
+.reseller-form textarea {
+  resize:none;
+  height:70px;
+}
 </style>
 </head>
 <body>
@@ -298,6 +318,12 @@ body {
       <li>✔ Dapat Potongan Harga</li>
     </ul>
 
+    <!-- FORM RESELLER -->
+  <div class="reseller-form">
+    <input type="text" id="reseller-username" placeholder="Username" required>
+    <input type="number" id="reseller-password" placeholder="Password" required>
+    <textarea id="reseller-mesej" placeholder="Mesej Anda"></textarea>
+    
     <button class="btn reseller-btn" onclick="orderReseller()">Daftar Jadi Reseller</button>
   </div>
 </section>
@@ -459,12 +485,23 @@ function updateWhatsAppLink(totalAmount){
   document.getElementById("whatsapp-checkout").onclick = null;
 }
 
-function orderReseller(){
-  let msg = `Saya berminat untuk daftar sebagai RESELLER NeckleNj.
+function submitReseller(){
+  const name = document.getElementById("reseller-name").value;
+  const age = document.getElementById("reseller-age").value;
+  const exp = document.getElementById("reseller-exp").value;
 
-Sila isi Detail Pendaftaran Reseller:
-Username:
-Password:
+  // VALIDATION
+  if(name === "" || age === ""){
+    alert("Sila isi Nama dan Umur!");
+    return;
+  }
+
+  let msg = `Saya ingin daftar sebagai RESELLER NeckleNj.
+
+Maklumat saya:
+username: ${Username}
+password: ${Password}
+mesej: ${Mesej anda || ""}
 
 Saya ingin mengetahui lebih lanjut tentang:
 - Cara sistem reseller
