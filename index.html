@@ -22,6 +22,7 @@ body {
   font-family:'Segoe UI',sans-serif;
   background: linear-gradient(135deg,#0f172a,#020617);
   color:white;
+  padding-top:50px; /* tambah ini */
 }
 
 /* ========== CONTAINER ========== */
@@ -162,8 +163,20 @@ body {
 </head>
 <body>
 
-<!-- MARQUEE PALING ATAS -->
-<div id="marquee" style="background:#facc15; color:black; padding:8px; font-weight:bold;">
+<body>
+
+<!-- MARQUEE FIXED ATAS -->
+<div id="marquee" style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:#facc15;
+  color:black;
+  padding:8px;
+  font-weight:bold;
+  z-index:9999;
+">
   <marquee behavior="scroll" direction="left" scrollamount="6">
     Info rasmi: Sistem OTT dan Kedai ini sedang dalam pemantauan. Sila hubungi admin untuk sebarang masalah. Original ID By Shopee NeckleNj or NeckleNj Labs
   </marquee>
