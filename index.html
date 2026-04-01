@@ -322,7 +322,6 @@ body {
 <div class="reseller-form">
   <input type="text" id="reseller-username" placeholder="Username" required>
   <input type="text" id="reseller-password" placeholder="Password" required>
-  <textarea id="reseller-mesej" placeholder="Mesej Anda"></textarea>
   
   <button class="btn reseller-btn" onclick="orderReseller()">
     Daftar Jadi Reseller
@@ -349,7 +348,7 @@ showOnScroll();
 
 /* ===== PROMO & DEVICE SETUP ===== */
 const promoStart = new Date("2026-03-31T00:00:00"); // Tarikh mula promosi
-const promoEnd   = new Date("2026-06-01T23:59:59"); // Tarikh tamat promosi
+const promoEnd   = new Date("2026-05-01T23:59:59"); // Tarikh tamat promosi
 const promoPrice = 20;
 const promoActive = true;
 
@@ -491,8 +490,7 @@ function updateWhatsAppLink(totalAmount){
 function orderReseller(){
   const username = document.getElementById("reseller-username").value;
   const password = document.getElementById("reseller-password").value;
-  const mesej = document.getElementById("reseller-mesej").value;
-
+  
   if(username === "" || password === ""){
     alert("Sila isi Username dan Password!");
     return;
@@ -503,7 +501,6 @@ function orderReseller(){
 Maklumat Akaun:
 Username: ${username}
 Password: ${password}
-Mesej: ${mesej || "Tiada"}
 
 Saya berminat untuk mula jadi reseller dan ingin maklumat lanjut.
 
