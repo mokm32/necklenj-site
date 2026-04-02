@@ -159,6 +159,32 @@ body {
   resize:none;
   height:70px;
 }
+
+/* SOLD OUT STYLE */
+.card.sold-out {
+  opacity: 0.6;             
+  pointer-events: none;      
+  position: relative;
+}
+
+.card.sold-out::after {
+  content: "HABIS STOK";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  font-size: 28px;
+  color: #ef4444;
+  font-weight: bold;
+  background: rgba(255,255,255,0.2);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.card.sold-out .price {
+  text-decoration: line-through;   
+  color: #f87171;
+}
 </style>
 </head>
 <body>
@@ -266,7 +292,8 @@ body {
     <button class="btn" onclick="addToCart('Lifetime')">Tambah ke Troli</button>
   </div>
 
-  <div class="card">
+  <!-- Pakej Guna Selagi Boleh – SOLD OUT -->
+  <div class="card sold-out" id="guna-card">
     <h2>Guna Selagi Boleh</h2>
     <div class="price">RM10</div>
     <p>Tambah Device: RM5/device</p>
@@ -278,6 +305,7 @@ body {
     <div class="total" id="guna-total"></div>
     <button class="btn" onclick="addToCart('Guna')">Tambah ke Troli</button>
   </div>
+</div>
 
   <div class="card">
     <h2>3 Bulan</h2>
@@ -475,15 +503,28 @@ update("bulan",0);
 /* CART & WHATSAPP CHECKOUT */
 let cart=[];
 function addToCart(type){
+  // 🔴 Extra safety untuk pakej Guna Selagi Boleh
+  if(type === "Guna"){
+    alert("Maaf, pakej Guna Selagi Boleh telah habis stok!");
+    return; // hentikan function
+  }
+
+  // rest of code untuk pakej lain
   let deviceCount=1, price=0;
-  if(type=="Lifetime"){ deviceCount=devices.life; price=(promoActive && now>=promoStart && now<=promoEnd)? promoPrice : prices.life;}
-  else if(type=="Guna"){ deviceCount=devices.guna; price=prices.guna; }
-  else if(type=="3Bulan"){ deviceCount=devices.bulan; price=prices.bulan; }
+  if(type=="Lifetime"){ 
+    deviceCount=devices.life; 
+    price=(promoActive && now>=promoStart && now<=promoEnd)? promoPrice : prices.life;
+  }
+  else if(type=="3Bulan"){ 
+    deviceCount=devices.bulan; 
+    price=prices.bulan; 
+  }
+
   let total = price + (deviceCount-1)*5;
   cart.push({type:type, devices:deviceCount, total:total});
   renderCart();
 
-  // 🔹 Scroll ke cart selepas tambah
+  // Scroll ke cart selepas tambah
   document.querySelector('.cart').scrollIntoView({ behavior: 'smooth' });
 }
 function removeFromCart(index){ cart.splice(index,1); renderCart(); }
