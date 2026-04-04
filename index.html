@@ -16,13 +16,55 @@
 <meta property="og:type" content="website">
   
 <style>
+/* HEADER NAV */
+.header-nav {
+  position: fixed;
+  top: 55px;; /* bawah marquee */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+  z-index: 9998;
+}
+
+/* BUTTON STYLE */
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+/* HOVER */
+.nav-btn:hover {
+  background: #22c55e;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* TELEGRAM SPECIAL */
+.telegram-btn {
+  background: #0088cc;
+  color: white;
+}
+
+.telegram-btn:hover {
+  background: #0ea5e9;
+}
+  
 /* ========== RESET & BODY ========== */
 * { box-sizing:border-box; margin:0; padding:0; }
 body {
   font-family:'Segoe UI',sans-serif;
   background: linear-gradient(135deg,#0f172a,#020617);
   color:white;
-  padding-top:50px; /* tambah ini */
+  padding-top:110px; /* tambah ini */
 }
 
 /* ========== CONTAINER ========== */
@@ -183,6 +225,14 @@ body {
   </marquee>
 </div>
 
+<!-- HEADER NAVIGATION -->
+<div class="header-nav">
+  <a href="#" class="nav-btn">🏠 Home</a>
+  <a href="https://t.me/+W6T8PwY-MklmMGY1" target="_blank" class="nav-btn telegram-btn">
+    📢 Join Telegram
+  </a>
+</div>
+  
 <div class="container">
 
 <section class="hero">
