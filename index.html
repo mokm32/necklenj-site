@@ -566,7 +566,7 @@ function updateWhatsAppLink(totalAmount){
   cart.forEach(item => {
     msg += `- ${item.type}: ${item.devices} device(s) - RM${item.total}\n`;
   });
-  msg += `\nJumlah Keseluruhan: RM${totalAmount}\n\nSila Hantar Bukti Pembayaran Sini QR Ada Dalam Website Kami.`;
+  msg += `\nJumlah Keseluruhan: RM${totalAmount}\n\nSila hantarkan bukti pembayaran di sini. Kod QR tersedia di laman web kami. Selepas pembayaran disahkan, anda akan menerima ID anda.`;
 
   const encodedMsg = encodeURIComponent(msg);
 
