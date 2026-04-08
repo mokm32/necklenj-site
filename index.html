@@ -355,21 +355,31 @@ body {
 <!-- PAYMENT METHODS -->
 <section class="payment-methods" style="margin-top:40px; text-align:center;">
   <h2>💳 Kaedah Pembayaran</h2>
+
   <div class="bank-info-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:20px;">
+
+    <!-- HONG LEONG -->
     <div class="bank-info" style="background: rgba(255,255,255,0.05); padding:20px; border-radius:20px; width:280px; text-align:center;">
-      <a href="https://i.ibb.co/0jtvDs9h/photo-2025-05-23-20-36-48.jpg" target="_blank">
-        <img src="https://i.ibb.co/0jtvDs9h/photo-2025-05-23-20-36-48.jpg" alt="Bukti Pembayaran Bank" style="width:100%; border-radius:15px;">
-      </a>
+      
+      <img src="https://i.ibb.co/0jtvDs9h/photo-2025-05-23-20-36-48.jpg" 
+           onclick="openImagePreview(this.src)"
+           style="width:100%; border-radius:15px; cursor:pointer;">
+
       <p><strong>Bank: Hong Leong Bank</strong></p>
       <p>Sila hantar bukti pembayaran kepada kami melalui WhatsApp.</p>
     </div>
+
+    <!-- TNG -->
     <div class="bank-info" style="background: rgba(255,255,255,0.05); padding:20px; border-radius:20px; width:280px; text-align:center;">
-      <a href="https://i.ibb.co/1Y8Hkqqj/Imej-Whats-App-2025-09-15-pada-08-54-40-0fff60a5.jpg" target="_blank">
-        <img src="https://i.ibb.co/1Y8Hkqqj/Imej-Whats-App-2025-09-15-pada-08-54-40-0fff60a5.jpg" alt="Bukti Pembayaran E-Wallet/TNG" style="width:100%; border-radius:15px;">
-      </a>
+      
+      <img src="https://i.ibb.co/1Y8Hkqqj/Imej-Whats-App-2025-09-15-pada-08-54-40-0fff60a5.jpg" 
+           onclick="openImagePreview(this.src)"
+           style="width:100%; border-radius:15px; cursor:pointer;">
+
       <p><strong>E-Wallet: Touch 'n Go</strong></p>
       <p>Sila hantar bukti pembayaran kepada kami melalui WhatsApp.</p>
     </div>
+
   </div>
 </section>
 
@@ -610,11 +620,17 @@ Terima kasih.`;
 
 /* ===== TAMBAH DI SINI ===== */
 function openPanelPreview(){
-  document.getElementById("panelModal").style.display = "flex";
+  openImagePreview("https://i.ibb.co/jk1zRY5c/Jumlah-Kredit-mengikut-pakej.jpg");
 }
 
 function closePanelPreview(){
   document.getElementById("panelModal").style.display = "none";
+}
+
+/* ===== INI YANG ANDA TANYA ===== */
+function openImagePreview(src){
+  document.getElementById("modalImage").src = src;
+  document.getElementById("panelModal").style.display = "flex";
 }
 </script>
 
@@ -648,8 +664,8 @@ function closePanelPreview(){
     ">✖</span>
 
     <!-- IMAGE -->
-    <img src="https://i.ibb.co/jk1zRY5c/Jumlah-Kredit-mengikut-pakej.jpg" 
-         style="width:100%; border-radius:15px;">
+    <img id="modalImage" src="" 
+     style="width:100%; border-radius:15px;">
   </div>
 </div>
 
