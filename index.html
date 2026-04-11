@@ -319,10 +319,7 @@ body {
 
   <div class="card">
     <h2>Guna Selagi Boleh</h2>
-    <p id="guna-price">
-  <span class="promo-original" id="guna-original"></span>
-  <span class="promo-price" id="guna-promo"></span>
-</p>
+    <div class="price">RM8</div>
     <p>Tambah Device: RM5/device</p>
     <div class="device-control">
       <button class="btn-device" onclick="update('guna',-1)">-</button>
@@ -335,10 +332,7 @@ body {
 
   <div class="card">
     <h2>3 Bulan</h2>
-    <p id="bulan-price">
-  <span class="promo-original" id="bulan-original"></span>
-  <span class="promo-price" id="bulan-promo"></span>
-</p>
+    <div class="price">RM6</div>
     <p>Tambah Device: RM5/device</p>
     <div class="device-control">
       <button class="btn-device" onclick="update('bulan',-1)">-</button>
@@ -462,11 +456,7 @@ showOnScroll();
 /* ===== PROMO & DEVICE SETUP ===== */
 const promoStart = new Date("2026-03-31T00:00:00"); // Tarikh mula promosi
 const promoEnd   = new Date("2026-05-01T23:59:59"); // Tarikh tamat promosi
-const promoPrice = {
-  life: 10,
-  guna: 8,
-  bulan: 6
-};
+const promoPrice = 10;
 const promoActive = true;
 
 const prices = { life:30, guna:10, bulan:8 };
@@ -527,62 +517,25 @@ updateCountdown(); // run sekali pada load
 /* ===== PROMO DISPLAY & UPDATE TOTAL ===== */
 const lifetimeOriginal = document.getElementById("lifetime-original");
 const lifetimePromo = document.getElementById("lifetime-promo");
-  
-const gunaOriginal = document.getElementById("guna-original");
-const gunaPromo = document.getElementById("guna-promo");
-
-const bulanOriginal = document.getElementById("bulan-original");
-const bulanPromo = document.getElementById("bulan-promo");
 const now = new Date();
 
 if(promoActive && now>=promoStart && now<=promoEnd){
-
-  // LIFETIME
   lifetimeOriginal.innerText = "RM"+prices.life;
-  lifetimePromo.innerText = "RM"+promoPrice.life;
-
-  // GUNA
-  gunaOriginal.innerText = "RM"+prices.guna;
-  gunaPromo.innerText = "RM"+promoPrice.guna;
-
-  // BULAN
-  bulanOriginal.innerText = "RM"+prices.bulan;
-  bulanPromo.innerText = "RM"+promoPrice.bulan;
-
+  lifetimePromo.innerText = "RM"+promoPrice;
 }else{
-
   lifetimeOriginal.style.display="none";
   lifetimePromo.innerText="RM"+prices.life;
-
-  gunaOriginal.style.display="none";
-  gunaPromo.innerText="RM"+prices.guna;
-
-  bulanOriginal.style.display="none";
-  bulanPromo.innerText="RM"+prices.bulan;
 }
 
 function update(type, change){
-
   devices[type] += change;
-  if(devices[type] < 1) devices[type] = 1;
-  if(devices[type] > 5) devices[type] = 5;
-
+  if(devices[type]<1) devices[type]=1;
+  if(devices[type]>5) devices[type]=5;
   document.getElementById(type+"-device").innerText = devices[type];
-
+  let total = prices[type] + (devices[type]-1)*5;
   const now = new Date();
-
-  let basePrice = prices[type];
-
-  // check promo semua pakej
-  if(promoActive && now >= promoStart && now <= promoEnd){
-    if(type === "life") basePrice = promoPrice.life;
-    if(type === "guna") basePrice = promoPrice.guna;
-    if(type === "bulan") basePrice = promoPrice.bulan;
-  }
-
-  let total = basePrice + (devices[type] - 1) * 5;
-
-  document.getElementById(type+"-total").innerText = "Total: RM" + total;
+  if(type==="life" && promoActive && now>=promoStart && now<=promoEnd) total = promoPrice + (devices[type]-1)*5;
+  document.getElementById(type+"-total").innerText = "Total: RM"+total;
 }
 
 // init totals
@@ -591,51 +544,17 @@ update("guna",0);
 update("bulan",0);
 
 /* CART & WHATSAPP CHECKOUT */
+let cart=[];
 function addToCart(type){
-
-  const now = new Date();
-
-  let deviceCount = 1;
-  let price = 0;
-
-  // normalize type (IMPORTANT)
-  if(type === "Lifetime"){
-    deviceCount = devices.life;
-    price = (promoActive && now >= promoStart && now <= promoEnd)
-      ? promoPrice.life
-      : prices.life;
-  }
-
-  else if(type === "Guna"){
-    deviceCount = devices.guna;
-    price = (promoActive && now >= promoStart && now <= promoEnd)
-      ? promoPrice.guna
-      : prices.guna;
-  }
-
-  else if(type === "3Bulan"){
-    deviceCount = devices.bulan;
-    price = (promoActive && now >= promoStart && now <= promoEnd)
-      ? promoPrice.bulan
-      : prices.bulan;
-  }
-
-  else {
-    console.log("Type tidak dikenali:", type);
-    return;
-  }
-
-  let total = price + (deviceCount - 1) * 5;
-
-  cart.push({
-    type,
-    devices: deviceCount,
-    total
-  });
-
+  let deviceCount=1, price=0;
+  if(type=="Lifetime"){ deviceCount=devices.life; price=(promoActive && now>=promoStart && now<=promoEnd)? promoPrice : prices.life;}
+  else if(type=="Guna"){ deviceCount=devices.guna; price=prices.guna; }
+  else if(type=="3Bulan"){ deviceCount=devices.bulan; price=prices.bulan; }
+  let total = price + (deviceCount-1)*5;
+  cart.push({type:type, devices:deviceCount, total:total});
   renderCart();
 
-  // scroll ke cart
+  // 🔹 Scroll ke cart selepas tambah
   document.querySelector('.cart').scrollIntoView({ behavior: 'smooth' });
 }
 function removeFromCart(index){ cart.splice(index,1); renderCart(); }
