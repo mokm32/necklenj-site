@@ -648,9 +648,7 @@ function playVideo(videoId){
   img.style.display = "none";
 
   video.style.display = "block";
-
-  // tukar ke youtube embed
-  video.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  video.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
 
   document.getElementById("panelModal").style.display = "flex";
 }
@@ -660,23 +658,25 @@ function openImagePreview(src){
   const img = document.getElementById("modalImage");
   const video = document.getElementById("modalVideo");
 
-  video.pause();
+  video.src = "";
   video.style.display = "none";
 
-  img.style.display = "block";
   img.src = src;
+  img.style.display = "block";
 
   document.getElementById("panelModal").style.display = "flex";
 }
 
-/* ===== CLOSE MODAL ===== */
+function openPanelPreview(){
+  openImagePreview("https://i.ibb.co/jk1zRY5c/Jumlah-Kredit-mengikut-pakej.jpg");
+}
+
 function closePanelPreview(){
+  const modal = document.getElementById("panelModal");
   const video = document.getElementById("modalVideo");
 
-  video.pause();
   video.src = "";
-
-  document.getElementById("panelModal").style.display = "none";
+  modal.style.display = "none";
 }
 </script>
 
@@ -689,35 +689,46 @@ function closePanelPreview(){
   top:0;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
 ">
+  
+  <div style="
+    position:relative;
+    width:90%;
+    max-width:900px;
+    background:#000;
+    border-radius:15px;
+    overflow:hidden;
+  ">
 
   <div style="position:relative; max-width:90%; max-height:90%;">
     
     <!-- CLOSE BUTTON -->
     <span onclick="closePanelPreview()" style="
       position:absolute;
-      top:-10px;
-      right:-10px;
+      top:10px;
+      right:10px;
       background:red;
       color:white;
-      font-size:20px;
+      font-size:18px;
       padding:5px 10px;
       border-radius:50%;
       cursor:pointer;
+      z-index:99999;
     ">✖</span>
 
-    <!-- IMAGE / VIDEO -->
-    <img id="modalImage" src="" style="width:100%; border-radius:15px; display:none;">
+    <!-- IMAGE -->
+    <img id="modalImage" style="width:100%; display:none;">
 
-<iframe id="modalVideo"
-  style="width:100%; height:400px; border-radius:15px;"
-  frameborder="0"
-  allow="autoplay; encrypted-media"
-  allowfullscreen>
-</iframe>
+    <!-- VIDEO (BIG FIX) -->
+    <iframe id="modalVideo"
+      style="width:100%; height:500px; display:none;"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
 
   </div>
 </div>
