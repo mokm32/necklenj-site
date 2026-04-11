@@ -562,14 +562,27 @@ if(promoActive && now>=promoStart && now<=promoEnd){
 }
 
 function update(type, change){
+
   devices[type] += change;
-  if(devices[type]<1) devices[type]=1;
-  if(devices[type]>5) devices[type]=5;
+  if(devices[type] < 1) devices[type] = 1;
+  if(devices[type] > 5) devices[type] = 5;
+
   document.getElementById(type+"-device").innerText = devices[type];
-  let total = prices[type] + (devices[type]-1)*5;
+
   const now = new Date();
-  if(type==="life" && promoActive && now>=promoStart && now<=promoEnd) total = promoPrice + (devices[type]-1)*5;
-  document.getElementById(type+"-total").innerText = "Total: RM"+total;
+
+  let basePrice = prices[type];
+
+  // check promo semua pakej
+  if(promoActive && now >= promoStart && now <= promoEnd){
+    if(type === "life") basePrice = promoPrice.life;
+    if(type === "guna") basePrice = promoPrice.guna;
+    if(type === "bulan") basePrice = promoPrice.bulan;
+  }
+
+  let total = basePrice + (devices[type] - 1) * 5;
+
+  document.getElementById(type+"-total").innerText = "Total: RM" + total;
 }
 
 // init totals
