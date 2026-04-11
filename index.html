@@ -229,6 +229,12 @@ body {
 <!-- HEADER NAVIGATION -->
 <div class="header-nav">
   <a href="#" class="nav-btn">🏠 Home</a>
+
+  <!-- 🎥 TUTORIAL OTT -->
+  <a href="#" onclick="openTutorialMenu()" class="nav-btn" style="background:#f59e0b; color:black;">
+    🎥 Tutorial OTT
+  </a>
+
   <a href="https://t.me/+W6T8PwY-MklmMGY1" target="_blank" class="nav-btn telegram-btn">
     📢 Join Telegram
   </a>
@@ -618,19 +624,58 @@ Terima kasih.`;
   window.location.href = `https://wa.me/601136237443?text=${encodedMsg}`;
 }
 
-/* ===== TAMBAH DI SINI ===== */
+/* ===== VISUAL PANEL ===== */
 function openPanelPreview(){
   openImagePreview("https://i.ibb.co/jk1zRY5c/Jumlah-Kredit-mengikut-pakej.jpg");
 }
 
-function closePanelPreview(){
-  document.getElementById("panelModal").style.display = "none";
+/* ===== TUTORIAL MENU ===== */
+function openTutorialMenu(){
+  document.getElementById("tutorialMenu").style.display = "flex";
 }
 
-/* ===== INI YANG ANDA TANYA ===== */
-function openImagePreview(src){
-  document.getElementById("modalImage").src = src;
+function closeTutorialMenu(){
+  document.getElementById("tutorialMenu").style.display = "none";
+}
+
+/* ===== PLAY VIDEO ===== */
+function playVideo(src){
+  closeTutorialMenu();
+
+  const img = document.getElementById("modalImage");
+  const video = document.getElementById("modalVideo");
+
+  img.style.display = "none";
+
+  video.style.display = "block";
+  video.src = src;
+  video.play();
+
   document.getElementById("panelModal").style.display = "flex";
+}
+
+/* ===== IMAGE PREVIEW ===== */
+function openImagePreview(src){
+  const img = document.getElementById("modalImage");
+  const video = document.getElementById("modalVideo");
+
+  video.pause();
+  video.style.display = "none";
+
+  img.style.display = "block";
+  img.src = src;
+
+  document.getElementById("panelModal").style.display = "flex";
+}
+
+/* ===== CLOSE MODAL ===== */
+function closePanelPreview(){
+  const video = document.getElementById("modalVideo");
+
+  video.pause();
+  video.src = "";
+
+  document.getElementById("panelModal").style.display = "none";
 }
 </script>
 
@@ -663,9 +708,60 @@ function openImagePreview(src){
       cursor:pointer;
     ">✖</span>
 
-    <!-- IMAGE -->
-    <img id="modalImage" src="" 
-     style="width:100%; border-radius:15px;">
+    <!-- IMAGE / VIDEO -->
+    <img id="modalImage" src="" style="width:100%; border-radius:15px; display:none;">
+
+<video id="modalVideo" controls style="width:100%; border-radius:15px; display:none;"></video>
+
+  </div>
+</div>
+
+
+<!-- ===== TUTORIAL MENU (ASINGKAN!) ===== -->
+<div id="tutorialMenu" style="
+  display:none;
+  position:fixed;
+  z-index:10001;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+">
+
+  <div style="
+    background:#020617;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    max-width:300px;
+    width:90%;
+  ">
+
+    <h3 style="margin-bottom:15px;">📺 Pilih Tutorial</h3>
+
+    <button class="btn" style="width:100%; margin-bottom:10px;"
+      onclick="playVideo('https://www.dropbox.com/scl/fi/dxknb1q9zv1kpp1wwohvk/tutorial-setup-id.mp4?dl=1')">
+      ▶️ Setup ID Link
+    </button>
+
+    <button class="btn" style="width:100%; margin-bottom:10px;"
+      onclick="playVideo('https://www.dropbox.com/scl/fi/c3j5hgcnm4kxzusab5otz/cara-setup-epg.mp4?dl=1')">
+      ▶️ Setup EPG
+    </button>
+
+    <button onclick="closeTutorialMenu()" style="
+      margin-top:10px;
+      background:red;
+      color:white;
+      border:none;
+      padding:8px 15px;
+      border-radius:10px;
+      cursor:pointer;
+    ">Tutup</button>
+
   </div>
 </div>
 
