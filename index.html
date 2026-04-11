@@ -639,7 +639,7 @@ function closeTutorialMenu(){
 }
 
 /* ===== PLAY VIDEO ===== */
-function playVideo(src){
+function playVideo(videoId){
   closeTutorialMenu();
 
   const img = document.getElementById("modalImage");
@@ -648,8 +648,9 @@ function playVideo(src){
   img.style.display = "none";
 
   video.style.display = "block";
-  video.src = src;
-  video.play();
+
+  // tukar ke youtube embed
+  video.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
   document.getElementById("panelModal").style.display = "flex";
 }
@@ -711,7 +712,12 @@ function closePanelPreview(){
     <!-- IMAGE / VIDEO -->
     <img id="modalImage" src="" style="width:100%; border-radius:15px; display:none;">
 
-<video id="modalVideo" controls style="width:100%; border-radius:15px; display:none;"></video>
+<iframe id="modalVideo"
+  style="width:100%; height:400px; border-radius:15px;"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
 
   </div>
 </div>
@@ -743,12 +749,12 @@ function closePanelPreview(){
     <h3 style="margin-bottom:15px;">📺 Pilih Tutorial</h3>
 
     <button class="btn" style="width:100%; margin-bottom:10px;"
-      onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/dxknb1q9zv1kpp1wwohvk/tutorial-setup-id.mp4')">
+      onclick="playVideo('k0LoVHkgkKM')">
       ▶️ Setup ID Link
     </button>
 
     <button class="btn" style="width:100%; margin-bottom:10px;"
-      onclick="playVideo('https://dl.dropboxusercontent.com/scl/fi/c3j5hgcnm4kxzusab5otz/cara-setup-epg.mp4')">
+      onclick="playVideo('Fu4_cTxJYxQ')">
       ▶️ Setup EPG
     </button>
 
