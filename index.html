@@ -593,55 +593,49 @@ update("bulan",0);
 /* CART & WHATSAPP CHECKOUT */
 function addToCart(type){
 
-  let deviceCount = 1;
-  let price = prices.life;
-
   const now = new Date();
 
-  // 🔥 LIFETIME
-  if(type == "Lifetime"){
+  let deviceCount = 1;
+  let price = 0;
+
+  // normalize type (IMPORTANT)
+  if(type === "Lifetime"){
     deviceCount = devices.life;
-
-    if(promoActive && now >= promoStart && now <= promoEnd){
-      price = promoPrice.life;
-    } else {
-      price = prices.life;
-    }
+    price = (promoActive && now >= promoStart && now <= promoEnd)
+      ? promoPrice.life
+      : prices.life;
   }
 
-  // 🔥 GUNA SELAGI BOLEH
-  else if(type == "Guna"){
+  else if(type === "Guna"){
     deviceCount = devices.guna;
-
-    if(promoActive && now >= promoStart && now <= promoEnd){
-      price = promoPrice.guna;
-    } else {
-      price = prices.guna;
-    }
+    price = (promoActive && now >= promoStart && now <= promoEnd)
+      ? promoPrice.guna
+      : prices.guna;
   }
 
-  // 🔥 3 BULAN
-  else if(type == "3Bulan"){
+  else if(type === "3Bulan"){
     deviceCount = devices.bulan;
+    price = (promoActive && now >= promoStart && now <= promoEnd)
+      ? promoPrice.bulan
+      : prices.bulan;
+  }
 
-    if(promoActive && now >= promoStart && now <= promoEnd){
-      price = promoPrice.bulan;
-    } else {
-      price = prices.bulan;
-    }
+  else {
+    console.log("Type tidak dikenali:", type);
+    return;
   }
 
   let total = price + (deviceCount - 1) * 5;
 
   cart.push({
-    type: type,
+    type,
     devices: deviceCount,
-    total: total
+    total
   });
 
   renderCart();
 
-  // 🔹 Scroll ke cart selepas tambah
+  // scroll ke cart
   document.querySelector('.cart').scrollIntoView({ behavior: 'smooth' });
 }
 function removeFromCart(index){ cart.splice(index,1); renderCart(); }
