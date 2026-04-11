@@ -591,14 +591,54 @@ update("guna",0);
 update("bulan",0);
 
 /* CART & WHATSAPP CHECKOUT */
-let cart=[];
 function addToCart(type){
-  let deviceCount=1, price=0;
-  if(type=="Lifetime"){ deviceCount=devices.life; price=(promoActive && now>=promoStart && now<=promoEnd)? promoPrice : prices.life;}
-  else if(type=="Guna"){ deviceCount=devices.guna; price=prices.guna; }
-  else if(type=="3Bulan"){ deviceCount=devices.bulan; price=prices.bulan; }
-  let total = price + (deviceCount-1)*5;
-  cart.push({type:type, devices:deviceCount, total:total});
+
+  let deviceCount = 1;
+  let price = prices.life;
+
+  const now = new Date();
+
+  // 🔥 LIFETIME
+  if(type == "Lifetime"){
+    deviceCount = devices.life;
+
+    if(promoActive && now >= promoStart && now <= promoEnd){
+      price = promoPrice.life;
+    } else {
+      price = prices.life;
+    }
+  }
+
+  // 🔥 GUNA SELAGI BOLEH
+  else if(type == "Guna"){
+    deviceCount = devices.guna;
+
+    if(promoActive && now >= promoStart && now <= promoEnd){
+      price = promoPrice.guna;
+    } else {
+      price = prices.guna;
+    }
+  }
+
+  // 🔥 3 BULAN
+  else if(type == "3Bulan"){
+    deviceCount = devices.bulan;
+
+    if(promoActive && now >= promoStart && now <= promoEnd){
+      price = promoPrice.bulan;
+    } else {
+      price = prices.bulan;
+    }
+  }
+
+  let total = price + (deviceCount - 1) * 5;
+
+  cart.push({
+    type: type,
+    devices: deviceCount,
+    total: total
+  });
+
   renderCart();
 
   // 🔹 Scroll ke cart selepas tambah
